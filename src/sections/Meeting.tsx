@@ -175,6 +175,8 @@ const Meeting = () => {
   if (statusDesign) domains.push("Design");
   if (statusManagement) domains.push("Management");
 
+  const hasAnyDomainSelected = domains.length > 0;
+
   useEffect(() => {
     const fetchId = async () => {
       const id = secureLocalStorage.getItem("id");
@@ -239,6 +241,15 @@ const Meeting = () => {
 
 const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    if (!hasAnyDomainSelected) {
+      setOpenToast(true);
+      setToastContent({
+        message: "You must be selected in at least one domain to schedule a meeting.",
+        type: "error",
+      });
+      return;
+    }
 
     if (!date || !time) {
       setOpenToast(true);
