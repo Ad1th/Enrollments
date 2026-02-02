@@ -4,7 +4,7 @@ import TaskModal from "../components/TaskModal";
 interface Task {
   domain: string;
   subdomain: string;
-  label: number;
+  title: string;
   for: string;
   question: string;
 }
@@ -86,7 +86,7 @@ const ManagementTask = ({ selectedSubDomain, setSelectedSubDomain }: Props) => {
                 </div>
 
                 <h3 className="task-item-title">
-                  Management Task
+                  {task.title}
                 </h3>
 
                 <div className="task-item-footer">
@@ -164,112 +164,112 @@ const managementTaskData = [
   {
     "domain": "management",
     "subdomain": "outreach",
-    "label": 1,
+    "title": "Hello",
     "for": "junior",
     "question": "In a brief but critical encounter with a distinguished speaker or potential collaborator, you must effectively convey your organization's mission, key achievements, and unique value proposition. How would you structure a compelling and concise introduction that captures their interest? Additionally, when proposing a joint initiative to another organization, what strategic considerations and value-driven arguments would you emphasize to secure their collaboration?"
   },
   {
     "domain": "management",
     "subdomain": "outreach",
-    "label": 2,
+    "title": "hello",
     "for": "junior",
     "question": "Moments before a high-profile event, the keynote speaker cancels due to unforeseen circumstances, creating a potential credibility risk for the organization. How would you implement an immediate contingency plan to sustain audience engagement and uphold the event's professionalism? Beyond immediate crisis resolution, what long-term strategies would you establish to fortify the organization's reputation and mitigate reputational risks associated with unforeseen disruptions?"
   },
   {
     "domain": "management",
     "subdomain": "outreach",
-    "label": 3,
+    "title": "hello",
     "for": "junior",
     "question": "A potential sponsor, initially expressing interest in funding an event, hesitates at the final stage, seeking a more concrete justification for their return on investment (ROI). How would you construct a data-driven and persuasive case to secure their financial commitment? In a separate scenario, a major sponsor unexpectedly withdraws days before the event, creating a significant financial shortfall. What strategies would you employ to secure alternative funding sources or implement budgetary adjustments without compromising the event's quality or objectives?"
   },
   {
     "domain": "management",
     "subdomain": "outreach",
-    "label": 4,
+    "title": "4",
     "for": "junior",
     "question": "How do you handle sponsorship negotiations when a potential sponsor requests exclusivity within a specific category, and how do you balance their demands while ensuring the financial sustainability and diversity of event sponsorships?"
   },
   {
     "domain": "management",
     "subdomain": "editorial",
-    "label": 5,
+    "title": "Unique Event Proposal",
     "for": "junior",
-    "question": "Compose a compelling, well-structured blog on a topic of your choice, ensuring clarity, depth, and sustained reader engagement. Justify your topic selection by articulating its relevance, significance, and potential impact. How would you maintain a balance between informative content and narrative appeal to captivate a diverse audience?"
+    "question": "Design a unique, high-engagement tech event that avoids standard hackathon/workshop formats.\n\nRequirements: 1) Structure: 2–4 clear segments with a defined audience and purpose.\n2) Innovation: Use storytelling, gamification, or social media to drive immersion.\n\nDeliverables: 1) Concept: Unique theme and pitch (2–3 sentences).\n2) Flow & Timeline: Segmented activities with precise durations.\n3) Enhancements: Specific tactics for participant engagement."
   },
   {
     "domain": "management",
     "subdomain": "editorial",
-    "label": 6,
+    "title": "6",
     "for": "junior",
     "question": "Draft a professional, engaging, and persuasive email invitation for a guest speaker session, ensuring the tone is both formal and compelling. How would you effectively communicate the value of the session, highlight the speaker's relevance to the audience, and encourage a positive response while maintaining professionalism?"
   },
   {
     "domain": "management",
     "subdomain": "editorial",
-    "label": 7,
+    "title": "7",
     "for": "junior",
     "question": "Develop a seamless and engaging anchoring script (within 400 words) for a themed college fest, where the hosts embody the role of 'Time Travelers,' guiding the audience through performances spanning different eras. How would you integrate historical and futuristic elements to create an immersive and coherent narrative while maintaining audience engagement and ensuring smooth event transitions?"
   },
   {
     "domain": "management",
     "subdomain": "editorial",
-    "label": 8,
+    "title": "8",
     "for": "junior",
     "question": "Write a well-researched and thought-provoking opinion piece on a contemporary issue, ensuring a structured presentation of arguments supported by credible evidence. How would you anticipate and address counterarguments to provide a nuanced and balanced perspective while reinforcing the strength of your stance?"
   },
   {
     "domain": "management",
     "subdomain": "generaloperations",
-    "label": 9,
+    "title": "9",
     "for": "junior",
     "question": "Outline a structured event flow for a 250-participant 36-hour coding hackathon, ensuring efficient logistical planning and seamless management. How would you coordinate venue setup, technical infrastructure, participant onboarding, judging processes, sponsor integration, and contingency measures to handle unforeseen challenges while maintaining a high-quality experience for all stakeholders?"
   },
   {
     "domain": "management",
     "subdomain": "generaloperations",
-    "label": 10,
+    "title": "10",
     "for": "junior",
     "question": "As an event coordinator, you are responsible for ensuring the smooth execution of an upcoming event. However, several team members within the club are consistently missing deadlines and failing to complete their assigned tasks, putting the overall timeline at risk. How would you assess the root cause of these inefficiencies, implement corrective measures to re-align responsibilities, and enforce accountability while maintaining team morale and ensuring the event stays on track?"
   },
   {
     "domain": "management",
     "subdomain": "generaloperations",
-    "label": 11,
+    "title": "11",
     "for": "junior",
     "question": "A misunderstanding between two student organizations escalated into a public dispute, with members engaging in pointed exchanges on a social media platform. As engagement surged, the conflict drew widespread attention, risking reputational damage. As a leader, how would you dissect the root cause, implement decisive measures to defuse tensions while upholding professionalism, and establish safeguards to prevent future conflicts?"
   },
   {
     "domain": "management",
     "subdomain": "generaloperations",
-    "label": 12,
+    "title": "12",
     "for": "junior",
     "question": "In a high-pressure event scenario, you realize that key operational decisions need to be made on the spot, but senior organizers are unavailable, and conflicting inputs from different team members create confusion. How would you approach decision-making in such a situation while ensuring clarity, accountability, and minimal disruption to the event?"
   },
   {
     "domain": "management",
     "subdomain": "publicity",
-    "label": 13,
+    "title": "13",
     "for": "junior",
     "question": "What are some innovative and visually engaging reel concepts that could effectively promote our club's events while maximizing audience reach and participation?"
   },
   {
     "domain": "management",
     "subdomain": "publicity",
-    "label": 14,
+    "title": "14",
     "for": "junior",
     "question": "How would you craft a compelling and strategic pitch that highlights our club's value, objectives, and impact to attract both potential recruits and event attendees?"
   },
   {
     "domain": "management",
     "subdomain": "publicity",
-    "label": 15,
+    "title": "15",
     "for": "junior",
     "question": "If two clubs are hosting events on the same day, what targeted promotional strategies would you implement to ensure our event gains maximum visibility and engagement?"
   },
   {
     "domain": "management",
     "subdomain": "publicity",
-    "label": 16,
+    "title": "16",
     "for": "junior",
     "question": "Suggest five unique and impactful Instagram content strategies—spanning reels, posts, and stories—that would strengthen our club's digital presence and engagement."
   }
