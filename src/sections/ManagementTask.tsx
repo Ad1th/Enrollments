@@ -201,7 +201,7 @@ const managementTaskData = [
     "subdomain": "General Ops",
     "title": "OD Overload",
     "for": "senior",
-    "question": "Management domain: Participants were promised On-Duty permission, but sudden delays in approval now risk them being marked absent or even debarred from exams. Students are anxious, faculty are upset, and approvals are out of your control. As the on-ground coordinator, how would you reassure participants, coordinate with authorities, and protect both the event’s credibility and students’ academic safety? "
+    "question": "Participants were promised On-Duty permission, but sudden delays in approval now risk them being marked absent or even debarred from exams. Students are anxious, faculty are upset, and approvals are out of your control. As the on-ground coordinator, how would you reassure participants, coordinate with authorities, and protect both the event’s credibility and students’ academic safety? "
   },
   {
     "domain": "management",
@@ -228,7 +228,7 @@ const managementTaskData = [
     "domain": "management",
     "subdomain": "Publicity",
     "title": "Pivoting Perception",
-    "for": "junior",
+    "for": "senior",
     "question": "During Gravitas, one of your major events faced technical issues and eventually failed to deliver the promised experience. Many students expressed disappointment on social media and the club is now being perceived as unreliable. As the Publicity lead, how would you strategically rebuild credibility, regain trust, and reshape public perception— without sounding defensive or apologetic and while preparing the audience to attend future MFC events?"
   }
 ];
