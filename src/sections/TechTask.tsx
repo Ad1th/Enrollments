@@ -290,31 +290,31 @@ const techTaskData = [
   },
   {
     label: "cyber-sec",
-    title: "Capture the Flag (CTF) Challenge",
+    title: "Security Challenge: CTF",
     description:
-      "Solve cybersecurity challenges in cryptography, web vulnerabilities, and reverse engineering to find hidden flags. Using platforms like PicoCTF or local setups, they should know about SQL injection, XSS, and encryption basics.",
-    for: "senior",
-  },
-  {
-    label: "cyber-sec",
-    title: "Capture the Flag (CTF) Challenge",
-    description:
-      "Solve cybersecurity challenges in cryptography, web vulnerabilities, and reverse engineering to find hidden flags. Using platforms like PicoCTF or local setups, they should know about SQL injection, XSS, and encryption basics.",
+      "Use this link to code the picoCTF classroom and solve the challenges: CRiNMALYr",
     for: "junior",
   },
   {
     label: "cyber-sec",
-    title: "Simulated Cyber Attack & Defense",
+    title: "Firewall Simulator",
     description:
-      "Your system is under attack! Identify vulnerabilities in your own machine using Nmap, Wireshark, and OWASP ZAP. Simulate an attack like a MITM (Man-in-the-Middle), SQL injection, or XSS, document your findings, and secure your system against exploitation. Submit a detailed report with attack steps, detection, and mitigation strategies.",
+      "Create a simple firewall simulator.\n\nBase Requirements: 1) Block traffic from specific IPs.\n2) Block/allow specific ports.\n3) Block traffic based on protocol or traffic type.\n4) Maintain a log of all blocked/allowed actions.\n5) Provide a CLI or UI interface to configure rules.\n\nDeliverables: 1) A working script/tool.\n2) A short explanation of firewall logic.\n3) Example test cases",
+    for: "junior",
+  },
+  {
+    label: "cyber-sec",
+    title: "Web Pentesting Automation Tool",
+    description:
+      "Develop an automated web penetration testing tool to identify SQL Injection, XSS, insecure cookie configurations, and missing security headers within a fictional corporate web environment.\n\nBase Requirements: 1) Vulnerability Detection: Automated scanning for SQLi endpoints and XSS reflection points.\n2) Configuration Audit: Validation of cookie attributes (HttpOnly, Secure, SameSite) and critical security headers (CSP, HSTS, X-Frame-Options).\n3) Targeting Logic: Ability to crawl or receive specific endpoints from the provided fictional company scenario.\n\nDeliverables: 1) Source Code: A functional automation tool (Python, Go, or similar) implementing the detection logic.\n2) Documentation: A brief 'How-to' guide for running the tool against the target scenario.\n3) Pentest Report (Bonus): A structured summary detailing discovered vulnerabilities, severity levels, technical evidence, and remediation steps.",
     for: "senior",
   },
   {
     label: "cyber-sec",
-    title: "Simulated Cyber Attack & Defense",
+    title: "SSH Honeypot and Telemetry Processing",
     description:
-      "Your system is under attack! Identify vulnerabilities in your own machine using Nmap, Wireshark, and OWASP ZAP. Simulate an attack like a MITM (Man-in-the-Middle), SQL injection, or XSS, document your findings, and secure your system against exploitation. Submit a detailed report with attack steps, detection, and mitigation strategies.",
-    for: "junior",
+      "Build an SSH honeypot to capture attacker interactions and analyze session telemetry for behavioral patterns and bot detection.\n\nBase Requirements: 1) Logging: Record attacker IPs, timestamps, session summaries, and every executed command.\n2) Payload Capture: Extract attempted URLs and malicious scripts/commands.\n3) Telemetry Analysis: Produce insights on IP frequency, common commands, and distinguish between automated bots and human actors.\n\nDeliverables: 1) Source Code: A functional SSH listener and log processing system.\n2) Telemetry Report: A summary of malicious behavior patterns and IP analysis.\n3) Visualizations (Bonus): Charts or graphs representing attack trends and threat metrics.",
+    for: "senior",
   },
   {
     label: "app",
