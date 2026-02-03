@@ -325,27 +325,12 @@ const techTaskData = [
   },
   {
     label: "app",
-    title: "The Curious Case of the Lost Journal",
+    title: "Growth and Mentorship Tracker App",
     description:
-      "Build a Flutter mystery adventure where users explore locations, collect clues, and make decisions leading to multiple endings. Implement state management, custom navigation, an inventory system, and dialogues. Bonus: animations, local storage, a mini-game, and dark mode. Tests logic, UI, and state handling. ",
-    for: "senior",
-  },
-  {
-    label: "app",
-    title: "Glitch in the System",
-    description:
-      "Build a Flutter sci-fi adventure where users play as a hacker trapped in a virtual world. They must navigate a corrupted system, solve logic-based puzzles, and bypass security layers to escape. Implement state management, branching paths, hacking-themed UI, and interactive terminals. Bonus: glitch effects, encryption puzzles, and adaptive soundscapes.",
-
-    for: "junior",
-  },
-  {
-    label: "app",
-    title: "Glitch in the System",
-    description:
-      "Build a Flutter sci-fi adventure where users play as a hacker trapped in a virtual world. They must navigate a corrupted system, solve logic-based puzzles, and bypass security layers to escape. Implement state management, branching paths, hacking-themed UI, and interactive terminals. Bonus: glitch effects, encryption puzzles, and adaptive soundscapes.",
-
+      "Develop a growth-centric tracking system that monitors skill acquisition and mentorship logic instead of simple attendance.\n\nBase Requirements: 1) Skill Management: Mechanism to add members and assign skills categorized by proficiency (Beginner, Intermediate, Advanced).\n2) Mentorship Logic: A system to pair members with mentors to guide their development path.\n3) Progress Visualization: A dynamic 'status ladder' or progress graph to track and display member growth over time.\n\nDeliverables: 1) Core Application: A functional platform (Web or Mobile) implementing member management and skill leveling.\n2) Visualization Module: A dashboard featuring the progress graph or status ladder UI.\n3) Workflow Documentation: A brief explanation of the 'learning vs. attendance' logic and how the growth system scales.",
     for: "senior",
   }
+
 ,
   {
     label: "cp",

@@ -644,16 +644,7 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               />
               <span className="text-xs md:text-xs">Editorial</span>
             </label>
-            <label>
-              <input
-                type="checkbox"
-                className="nes-checkbox is-dark"
-                value="finance"
-                checked={subdomain.includes("finance")}
-                onChange={handleCheckboxChange}
-              />
-              <span className="text-xs md:text-xs">Finance</span>
-            </label>
+            
           </div>
         </div>
         <textarea
