@@ -588,16 +588,6 @@ const DesignTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="3d"
-                checked={subdomain.includes("3d")}
-                onChange={handleCheckboxChange}
-              />
-              <span className="text-xs md:text-xs">3D Modelling</span>
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                className="nes-checkbox is-dark"
                 value="videoediting/photography"
                 checked={subdomain.includes("videoediting/photography")}
                 onChange={handleCheckboxChange}
