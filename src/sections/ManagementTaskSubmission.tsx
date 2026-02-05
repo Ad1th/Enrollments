@@ -608,8 +608,8 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="generaloperations"
-                checked={subdomain.includes("generaloperations")}
+                value="General Operations"
+                checked={subdomain.includes("General Operations")}
                 onChange={handleCheckboxChange}
               />
               <span className="text-xs md:text-xs">General Operations</span>
@@ -618,8 +618,8 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="outreach"
-                checked={subdomain.includes("outreach")}
+                value="Outreach"
+                checked={subdomain.includes("Outreach")}
                 onChange={handleCheckboxChange}
               />
               <span className="text-xs md:text-xs">Outreach</span>
@@ -628,8 +628,8 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="publicity"
-                checked={subdomain.includes("publicity")}
+                value="Publicity"
+                checked={subdomain.includes("Publicity")}
                 onChange={handleCheckboxChange}
               />
               <span className="text-xs md:text-xs ">Publicity</span>
@@ -638,8 +638,8 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="editorial"
-                checked={subdomain.includes("editorial")}
+                value="Editorial"
+                checked={subdomain.includes("Editorial")}
                 onChange={handleCheckboxChange}
               />
               <span className="text-xs md:text-xs">Editorial</span>

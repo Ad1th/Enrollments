@@ -187,7 +187,7 @@ const managementTaskData = [
     "subdomain": "Editorial",
     "title": "Innovative Icebreaker",
     "for": "senior",
-    "question": "Create a 3-stage gamified participant experience that transitions from puzzle-based icebreaking to skill challenges and final rewards.\n\n\Base Requirements: 1) Progressive Structure: A linear 3-level flow (Puzzle → Skill → Reward).\n2) Engagement Mechanics: Integrated gamification at every stage to drive participation.\n\nDeliverables : 1) Level 1: Puzzle or icebreaker design.\n2) Level 2: Hands-on skill challenge or activity details.\n3) Level 3: Reward and recognition system."
+    "question": "Create a 3-stage gamified participant experience that transitions from puzzle-based icebreaking to skill challenges and final rewards.\n\nBase Requirements: 1) Progressive Structure: A linear 3-level flow (Puzzle → Skill → Reward).\n2) Engagement Mechanics: Integrated gamification at every stage to drive participation.\n\nDeliverables : 1) Level 1: Puzzle or icebreaker design.\n2) Level 2: Hands-on skill challenge or activity details.\n3) Level 3: Reward and recognition system."
   },
   {
     "domain": "management",

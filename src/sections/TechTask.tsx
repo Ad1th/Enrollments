@@ -292,8 +292,9 @@ const techTaskData = [
     label: "cyber-sec",
     title: "Security Challenge: CTF",
     description:
-      "Use this link to code the picoCTF classroom and solve the challenges: CRiNMALYr",
+      "Join the picoCTF classroom using the classroom code CRiNMALYr. Visit https://picoctf.org/, sign in, navigate to 'Classrooms' → 'Join Classroom', and enter this code to access and solve the assigned challenges.",
     for: "junior",
+    resources:["https://play.picoctf.org/classrooms"]
   },
   {
     label: "cyber-sec",
