@@ -337,8 +337,9 @@ const techTaskData = [
     label: "cp",
     title: "HackerRank Competition",
     description:
-      "A HackerRank Competition will be held on 'Date To be Announced'.\n\n Link to the Competition: ",
+      "A HackerRank Competition will be held on 'Date To be Announced'. In the task submission page for the Competitive Programming round, please attach your name and a link to your Hackerrank profile. You may add other Competitive Programming User IDs as well. ",
     for: "junior",
+    resources:[""]
   },
 
   {
@@ -346,7 +347,8 @@ const techTaskData = [
     title:
       "HackerRank Competition",
     description:
-      "A HackerRank Competition will be held on 'Date To be Announced'.\n\n Link to the Competition: ",
+      "A HackerRank Competition will be held on 'Date To be Announced'. In the task submission page for the Competitive Programming round, please attach your name and a link to your Hackerrank profile. You may add other Competitive Programming User IDs as well.",
     for: "senior",
+    resources:[""]
   },
 ]
