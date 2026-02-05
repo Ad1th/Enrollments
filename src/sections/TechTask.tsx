@@ -21,8 +21,8 @@ const TechTask = ({ selectedSubDomain, setSelectedSubDomain }: Props) => {
     // Based on the subdomain we are filtering the task
     const filteredTask = techTaskData.filter(
       (task) =>
-        task.label === selectedSubDomain &&
-        (isSC === true ? task.for === "senior" : task.for === "junior")
+        task.label === selectedSubDomain 
+      //&&(isSC === true ? task.for === "senior" : task.for === "junior")
     );
     if (filteredTask) {
       setFilteredTask(filteredTask);
@@ -115,6 +115,7 @@ const TechTask = ({ selectedSubDomain, setSelectedSubDomain }: Props) => {
           >
             AI/ML
           </button>
+          
           {!isSC && (
             <button
               type="button"
@@ -215,165 +216,136 @@ export default TechTask;
 const techTaskData = [
   {
     label: "backend",
-    title: "Blog Management API",
+    title: "Candidate Recruitment API",
     description:
-      "Develop a Blog Management API that allows users to create, manage, and interact with blog posts. The backend can be implemented in any programming language and can use any database (SQL or NoSQL) for data storage. Core Features: Users can create a blog post with a title and content. Users can view all blog posts. Users can update a blog post. Users can delete a blog post. Users can add comments to a blog post. Bonus Points: Implement likes on blog posts. Add JWT Authentication to allow users to manage their own posts securely. Deploy the API on a cloud platform. Write a comprehensive README with API documentation, including request and response examples. Use Go for the backend. Use an SQL database.",
+      "Build an API to manage a candidate's journey from application to hiring.\n\nBase Requirements : 1) Candidate Management: CRUD for candidates (Name, Email, Role, Resume text).\n2) Fixed Pipeline : Implement sequential stages: APPLIED ->SCREENING -> INTERVIEW -> HIRED/REJECTED.\n3) Basic RBAC: 'Candidate' role (view own status) and 'Recruiter' role (view all, move candidates to the next stage).\n\nDeliverables : 1) Documented Endpoints.\n2) Database schema diagram showing Candidate and User roles.",
     for: "junior",
   },
   {
     label: "backend",
-    title: "To-Do List API",
+    title: "Personal Locker API",
     description:
-      "Develop a To-Do List API that allows users to create, manage, and track their tasks. The backend can be implemented in any programming language and can use any database (SQL or NoSQL) for data storage. Core Features: Users can create a task with a title and description. Users can view all their tasks. Users can update a task's title, description, or completion status. Users can delete a task. Bonus Points: Implement due dates for tasks and allow sorting by due date. Add categories or tags to tasks for better organization. Implement JWT Authentication so users can manage their own tasks. Deploy the API on a cloud platform. Use Go for the backend and an SQL database for storage. Write a README with API documentation.",
+      "Create a secure backend for personal document storage. \n\nBase Requirements: 1) Authentication: Endpoints for user Registration and Login (JWT or Session-based).\n2) File Handling: Secure endpoints for uploading and downloading files (PDFs, Images), restricted to the file owner.\n3) Integrity: Error handling for empty files, unsupported formats, and unauthorized access attempts.\n4) Metadata: Store file name, upload timestamp, size, and User ID in the database.\n\nDeliverables: 1) Working API: Backend with local or cloud storage integration (e.g., AWS S3).\n2) README: Guide on handling multi-part form data and implementing secure authentication.",
     for: "junior",
   },
   {
     label: "backend",
-    title: "Advanced Event Management API",
+    title: "Advanced Appointment and Scheduling System",
     description:
-      "Develop an Advanced Event Management API that allows users to create, manage, and track events, including attendee management, ticketing, and role-based permissions. The backend can be implemented in any programming language and can use any database (SQL or NoSQL) for data storage. Core Features: Users can create an event with a title, description, date, location, and event type (public/private). Users can view all public events and only their own private events. Users can update or delete their own events. Users can register for an event and receive a QR code ticket for entry. Event organizers can track attendance using QR code scanning. Implement role-based access control (RBAC): Organizer: Can create, update, and manage event details & attendees. Attendee: Can register for events and view details. Write a comprehensive README with API documentation, including request/response examples. Bonus Points: Implement ticket pricing with different tiers (e.g., Regular, VIP). Add real-time notifications for event updates using WebSockets. Implement search and filtering (e.g., by date, location, event type). Deploy the API on a cloud platform with auto-scaling. Use Go for the backend and an SQL database for storage.",
+      "Advanced Appointment & Scheduling System An API for professionals (e.g., Doctors) to manage availability and bookings. \n\nBase Requirements: 1) Recurring Schedules: Logic to define availability every Monday-Friday in 30-minute blocks. \n2) Collision Engine: Prevent double-booking and block past-time reservations. \nBonus (OTP Auth): Implement Email/SMS OTP verification for login using a third-party service (e.g., Nodemailer/Twilio). \n\nDeliverables: 1) A robust 'Rescheduling' endpoint that handles availability checks atomically. \n2) Unified endpoint for a user's full schedule (bookings + available slots).",
     for: "senior",
   },
   {
     label: "backend",
-    title: "Advanced Multi-Tenant Inventory Management API",
+    title: "Collaborative Group Study API",
     description:
-      "Develop an Advanced Multi-Tenant Inventory Management API that allows businesses to manage their inventory, track stock levels, handle orders, and manage suppliers efficiently. The backend can be implemented in any programming language and can use any database (SQL or NoSQL) for data storage. Core Features: Multi-Tenant System: Each business has its own separate inventory and users. Product Management: Businesses can add, update, and delete products, including batch tracking and expiry dates. Stock Management: Businesses can track stock levels across multiple warehouses/locations and receive low-stock alerts. Order Management: Businesses can place and manage customer orders, update order status (Pending, Shipped, Delivered, Canceled). Businesses can track order fulfillment, ensuring stock availability before confirming orders. Supplier Management: Businesses can add and manage suppliers, track incoming stock, and create purchase orders. Role-Based Access Control (RBAC): Admin: Can manage all products, orders, warehouses, and users within their business. Employee: Can manage stock levels but cannot delete products. Warehouse Manager: Can update stock across warehouses but cannot handle orders. Sales and Stock Reports: Generate reports for sales trends, stock usage, and purchase orders. Write a README with API documentation and sample request/response examples. Bonus Points: RESTful API with Pagination & Filtering: Support query-based filtering (e.g., by product category, stock status). Supplier and Purchase Order Tracking: Businesses can view incoming stock shipments from suppliers. Deploy the API on a cloud platform with auto-scaling. Use Go for the backend and an SQL database for structured data storage.",
+      "A platform for hosts to create study sessions with real-time elements. \n\nBase Requirements: 1) Session Management: Host generates a unique code; others join via JWT-secured endpoints. \n2) Real-time Communication: Implement a chatting facility. \n3) Use WebSockets (Socket.io) for the chat and real-time 'Member Joined/Left' notifications. \n\nDeliverables: 1) WebSocket implementation for instant messaging. \n2) Logic for session persistence (what happens when the host leaves?).",
     for: "senior",
   },
+  
   {
     label: "ml",
-    title: "Rental Price Prediction Model",
+    title: "Rock Paper Scissors Image Classification",
     description:
-      "Perform data visualization and generate key insights from the given dataset. Then, build a machine learning model to predict rental prices based on various features such as location, property size, number of bedrooms, and amenities. Requirements: Conduct Exploratory Data Analysis (EDA) to identify trends, correlations, and anomalies. Visualize rental price distribution, correlations between price and key features, and geographic rent variations. Preprocess the dataset (handle missing values, normalize data, encode categorical variables). Train and evaluate a machine learning model for rent prediction. Interpret model results and provide actionable insights based on the findings.",
-    resources: [
-      "https://drive.google.com/file/d/193NnzSRruE3uZvkvT4XaUDNI_oVHbA_I/view?usp=drive_link",
-      "https://drive.google.com/file/d/1XNK7ZL-5a4enlcubVoro0VYZ0QgZb42X/view?usp=drive_link",
-    ],
+      "Build a visual recognition system capable of identifying and classifying hand gestures representing Rock, Paper, and Scissors from image data.\n\n Base Requirements 1) Classification Engine: Develop a logic-based system to accurately differentiate between the three distinct hand gesture categories.\n2) Performance Validation: Test the system against unseen images to measure its reliability and error rate across all gesture classes.\n\n Deliverables: 1) Functional Classifier: A completed system ready to receive an image input and return the corresponding gesture label (Rock, Paper, or Scissors).\n2) Results Visualization: A detailed summary of the system’s performance, including success rates and a breakdown of classification accuracy for each gesture.",
     for: "junior",
+    resources:["https://drive.google.com/file/d/1EyYTbAE4IQY4eA1dqOlnDCEUIdZsj0ey/view?usp=sharing"]
   },
   {
     label: "ml",
-    title: "Sequential Image Classification Model",
+    title: "COVID-19 Sentiment Analysis Model",
     description:
-      "Develop a Sequential Machine Learning Model that can identify and categorize images into predefined classes.",
-    for: "junior",
-  },
-  {
-    label: "ml",
-    title: "CIFAR-10 Neural Network from Scratch",
-    description:
-      "Build a machine learning model from scratch to train on the CIFAR-10 dataset using only NumPy, Pandas, and other basic libraries (without TensorFlow or PyTorch). The model should be a fully connected neural network that can classify images into 10 categories.",
+      "Develop a system to analyze and categorize public sentiment expressed in pandemic-related text data to track social trends and concern levels.\n\n Base Requirements: 1) Text Preparation: Standardize raw text data from the dataset to ensure it is suitable for analysis across various sentiment categories.\n2) Sentiment Categorization: Establish a multi-class system to classify entries into distinct sentiment groups ( Positive, Neutral, Negative,).\n3) Evaluation Framework: Apply statistical measures to verify the accuracy and reliability of the classification results against known labels.\n\n Deliverables: 1) Analysis Pipeline: A complete workflow that takes raw COVID-19 text data and outputs structured sentiment insights.\n2) Data Insights Report: Visualizations showing the distribution of sentiments and identifying the most prominent themes within the dataset.",
     for: "senior",
+    resources:["https://drive.google.com/file/d/14wabfRU3u41ir6TlFJvqiDDFETjg29Mv/view?usp=drive_link"]
   },
-  {
-    label: "ml",
-    title: "Advanced Spam Detection Model",
-    description:
-      "Build an advanced Spam Detection Model for Messages, using Natural Language Processing (NLP) techniques and an Advanced Deep Learning-based approach.",
-    for: "senior",
-  },
+  
   {
     label: "frontend",
-    title: "Responsive Portfolio Website",
+    title: "Event Registration Portal",
     description:
-      "Build a personal portfolio website that demonstrates responsiveness, user interaction, and creative design. Mandatory Requirements: Header & Navigation, About Section, Projects Section, Contact Section, Footer, Styling & Color Constraints, Hidden Validator, and Documentation. The website must include custom CSS animations, real-time form validation, and be fully responsive. Bonus Challenges: Implement a 'Back to Top' button with custom animation, add dark mode toggle, display a live clock that shows your local time zone using JavaScript.",
+      "Develop a responsive, well-structured frontend portal for club event registrations that prioritizes clean UI and real-time user feedback.\n\n Base Requirements: 1) Core Structure: Include a header, navigation, footer, and dedicated sections for Event Details, Registration, and Contact Info.\n2) Design Consistency: Create a layout and flow inspired by the official club website while maintaining a beginner-friendly UI.\n3) Form Validation: Implement real-time input validation for all mandatory registration fields to ensure data integrity.\n\nDeliverables: 1) Responsive Frontend: A fully functional, mobile-friendly portal reflecting the club's branding.\n 2) Interactive Form: A validated registration form with success feedback (e.g., confirmation popup or message). \n3) Enhanced UX Features: Implementation of a form progress indicator or a dynamic event countdown timer.",
     for: "junior",
   },
   {
     label: "frontend",
-    title: "Interactive To-Do List",
+    title: "Movie Search Engine (API Integration)",
     description:
-      "Create a dynamic to-do list application that integrates custom input behaviors, sorting, and personalized motivational messages. Mandatory Requirements: Task Addition with autocomplete for recurring tasks, Task Display with custom styling based on priority, Interactivity for marking tasks as completed, Custom Sorting Logic, Local Storage Checksum, and Documentation. Bonus Challenges: Persist tasks in localStorage, add filters to switch between 'All,' 'Active,' and 'Completed' tasks, implement a custom notification for overdue tasks.",
+      "Develop a responsive web application that fetches and displays movie data from the OMDB API using an intuitive, minimal interface.\n\n Base Requirements: 1) API Integration: Connect to the OMDB API to fetch real-time data (Title, Year, Poster, Rating) based on user queries.\n 2) Search Functionality: Implement a search bar with robust error handling for empty or invalid results.\n 3) Responsive UI: Create a clean, organized layout that adapts to different screen sizes and ensures smooth user interaction.\n\n Deliverables: 1) Functional Search Engine: A frontend application capable of dynamic content rendering from external API calls.\n2) Loading & Error States: Implementation of UI feedback such as loading indicators and user-friendly error messages.\n3) Enhanced Filtering: (Optional) Logic to filter results based on specific criteria, such as minimum IMDB ratings.",
     for: "junior",
   },
   {
     label: "frontend",
-    title: "Weather Dashboard with API Integration",
+    title: "Gamified Application Journey",
     description:
-      "Develop a weather dashboard using a JavaScript framework of your choice. This dashboard must integrate with at least two niche weather APIs, provide a multifaceted view of weather information, and incorporate personalized features. Mandatory Requirements: City Weather Search, Dynamic Visualization, Forecast Cards, Error Handling, Weather Journal, Temperature Unit Toggle, API Key Obfuscation, and Documentation. Bonus Challenges: Add geolocation support with an animated UI element, implement a 'Favorites' list with drag-and-drop reordering, provide an 'Export to PDF' button that exports the weather journal, optimize performance using memoization or debouncing.",
+      "Transform a standard four-step application process into an interactive, level-up experience using XP rewards, animated progress tracking, and persistent badge unlocks.\n\n Base Requirements: 1) Gamified Workflow: Implement a four-stage flow (Profile, Tasks, Submission, Status) guided by an animated horizontal stepper and a circular progress visual (SVG/Canvas).\n2) XP Engine: Build logic to award specific XP (20 for Profile, 10 per Task, 30 for Submission) and trigger badge unlocks at 50 and 100 XP thresholds.\n3) Data Persistence: Use localStorage to ensure XP totals, step progress, and earned badges remain saved across browser sessions.\n\n Deliverables 1) Interactive Dashboard: A frontend featuring smooth gradient transitions, a live XP counter, and an animated badge gallery.\n2) XP & Milestone Logic: A functional state management system that handles point accumulation and unlocks visual rewards.\n3) Enhanced UX Components: Implementation of 'pop-in' badge animations and optional features like a confetti burst or a social media 'snapshot' share tool.",
     for: "senior",
   },
   {
     label: "frontend",
-    title: "E-Commerce Product Listing Page",
+    title: "The Minimalist Pokedex",
     description:
-      "Create an e-commerce product listing page using a JavaScript framework of your choice. The page should dynamically fetch product data, allow interaction through filtering and sorting, and include personalized features that simulate a modern shopping experience. Mandatory Requirements: Product Listing with image carousel, Filtering & Sorting with debounced input, 'Recommended for You' Section, Wishlist Feature, Pagination/Infinite Scroll & Price Range Filter, and Documentation. Bonus Challenges: Implement a fully functioning shopping cart with quantity controls and real-time total calculation, enhance accessibility and add smooth hover animations for product cards.",
+      "Build a premium, Apple-inspired web portal that integrates the PokeAPI to display Pokémon data through a lens of minimalism, high-quality typography, and fluid user interactions.\n\n Base Requirements: 1) Apple Aesthetic: Utilize 'San Francisco' style typography, generous white space, and a product-centric layout (e.g., clean lines and subtle gradients).\n2) Search & Fetch: Implement a search bar that queries the https://pokeapi.co/ database and renders data dynamically without full-page reloads.\n3) Interactive Stats: Display a 'Product Card' for each Pokémon featuring its official artwork, ID, and a beautifully visualized base stats section (HP, Attack, Defense, etc.).\n4) Robust Error Handling: Design graceful states for 'Not Found' queries or network issues using elegant UI notifications rather than browser alerts.\n\n Deliverables: 1) Refined Pokémon Interface: A single-page application (SPA) featuring a sleek search experience and a responsive detail view.\n2) Dynamic UI Components: Polished data visualization for stats and an 'Apple-style' loading state (e.g., a skeleton screen or a minimalist spinner).\n3) Creative Bonus Features: Implementation of a 'Shiny' toggle to switch sprite assets and a dynamic theme engine that adapts the site’s accent colors to the Pokémon’s type (e.g., Fire = Soft Red).",
     for: "senior",
   },
   {
     label: "cyber-sec",
-    title: "Capture the Flag (CTF) Challenge",
+    title: "Security Challenge: CTF",
     description:
-      "Solve cybersecurity challenges in cryptography, web vulnerabilities, and reverse engineering to find hidden flags. Using platforms like PicoCTF or local setups, they should know about SQL injection, XSS, and encryption basics.",
+      "Use this link to code the picoCTF classroom and solve the challenges: CRiNMALYr",
+    for: "junior",
+  },
+  {
+    label: "cyber-sec",
+    title: "Firewall Simulator",
+    description:
+      "Create a simple firewall simulator.\n\nBase Requirements: 1) Block traffic from specific IPs.\n2) Block/allow specific ports.\n3) Block traffic based on protocol or traffic type.\n4) Maintain a log of all blocked/allowed actions.\n5) Provide a CLI or UI interface to configure rules.\n\nDeliverables: 1) A working script/tool.\n2) A short explanation of firewall logic.\n3) Example test cases",
+    for: "junior",
+  },
+  {
+    label: "cyber-sec",
+    title: "Web Pentesting Automation Tool",
+    description:
+      "Develop an automated web penetration testing tool to identify SQL Injection, XSS, insecure cookie configurations, and missing security headers within a fictional corporate web environment.\n\nBase Requirements: 1) Vulnerability Detection: Automated scanning for SQLi endpoints and XSS reflection points.\n2) Configuration Audit: Validation of cookie attributes (HttpOnly, Secure, SameSite) and critical security headers (CSP, HSTS, X-Frame-Options).\n3) Targeting Logic: Ability to crawl or receive specific endpoints from the provided fictional company scenario.\n\nDeliverables: 1) Source Code: A functional automation tool (Python, Go, or similar) implementing the detection logic.\n2) Documentation: A brief 'How-to' guide for running the tool against the target scenario.\n3) Pentest Report (Bonus): A structured summary detailing discovered vulnerabilities, severity levels, technical evidence, and remediation steps.",
     for: "senior",
   },
   {
     label: "cyber-sec",
-    title: "Capture the Flag (CTF) Challenge",
+    title: "SSH Honeypot and Telemetry Processing",
     description:
-      "Solve cybersecurity challenges in cryptography, web vulnerabilities, and reverse engineering to find hidden flags. Using platforms like PicoCTF or local setups, they should know about SQL injection, XSS, and encryption basics.",
-    for: "junior",
-  },
-  {
-    label: "cyber-sec",
-    title: "Simulated Cyber Attack & Defense",
-    description:
-      "Your system is under attack! Identify vulnerabilities in your own machine using Nmap, Wireshark, and OWASP ZAP. Simulate an attack like a MITM (Man-in-the-Middle), SQL injection, or XSS, document your findings, and secure your system against exploitation. Submit a detailed report with attack steps, detection, and mitigation strategies.",
-    for: "senior",
-  },
-  {
-    label: "cyber-sec",
-    title: "Simulated Cyber Attack & Defense",
-    description:
-      "Your system is under attack! Identify vulnerabilities in your own machine using Nmap, Wireshark, and OWASP ZAP. Simulate an attack like a MITM (Man-in-the-Middle), SQL injection, or XSS, document your findings, and secure your system against exploitation. Submit a detailed report with attack steps, detection, and mitigation strategies.",
-    for: "junior",
-  },
-  {
-    label: "app",
-    title: "The Curious Case of the Lost Journal",
-    description:
-      "Build a Flutter mystery adventure where users explore locations, collect clues, and make decisions leading to multiple endings. Implement state management, custom navigation, an inventory system, and dialogues. Bonus: animations, local storage, a mini-game, and dark mode. Tests logic, UI, and state handling. ",
-    for: "junior",
-  },
-  {
-    label: "app",
-    title: "The Curious Case of the Lost Journal",
-    description:
-      "Build a Flutter mystery adventure where users explore locations, collect clues, and make decisions leading to multiple endings. Implement state management, custom navigation, an inventory system, and dialogues. Bonus: animations, local storage, a mini-game, and dark mode. Tests logic, UI, and state handling. ",
+      "Build an SSH honeypot to capture attacker interactions and analyze session telemetry for behavioral patterns and bot detection.\n\nBase Requirements: 1) Logging: Record attacker IPs, timestamps, session summaries, and every executed command.\n2) Payload Capture: Extract attempted URLs and malicious scripts/commands.\n3) Telemetry Analysis: Produce insights on IP frequency, common commands, and distinguish between automated bots and human actors.\n\nDeliverables: 1) Source Code: A functional SSH listener and log processing system.\n2) Telemetry Report: A summary of malicious behavior patterns and IP analysis.\n3) Visualizations (Bonus): Charts or graphs representing attack trends and threat metrics.",
     for: "senior",
   },
   {
     label: "app",
-    title: "Glitch in the System",
+    title: "Student Club Enrollment App",
     description:
-      "Build a Flutter sci-fi adventure where users play as a hacker trapped in a virtual world. They must navigate a corrupted system, solve logic-based puzzles, and bypass security layers to escape. Implement state management, branching paths, hacking-themed UI, and interactive terminals. Bonus: glitch effects, encryption puzzles, and adaptive soundscapes.",
+      "Build a student-centric application to streamline club discovery and membership enrollment through a searchable directory and a validated application workflow.\n\n Base Requirements: 1) Dynamic Club Directory: Create a searchable list or grid view of active clubs, featuring logos, descriptions, and category-based filtering (e.g., Tech, Arts, Sports).\n2) Standardized Enrollment Form: An integrated data-entry interface to capture Student ID, Name, validated Email, and a brief Interest Statement.\n3) User Feedback System: Implementation of visual confirmation via success screens or toast notifications to acknowledge successful submissions.\n\n Deliverables: 1) Functional Application UI: A responsive mobile app optimized for browsing, searching, and seamless form entry.\n2) Enrollment Data Pipeline: A logic-driven backend or state management system to collect, validate, and store student application data.\n3) Extended Management Features (Optional): Implementation of a protected Admin Dashboard for club leads, unique QR code generation for student IDs, or a push notification system for application status updates. ",
+    for: "junior",
+  },
+  {
+    label: "app",
+    title: "Growth and Mentorship Tracker App",
+    description:
+      "Develop a growth-centric tracking system that monitors skill acquisition and mentorship logic instead of simple attendance.\n\nBase Requirements: 1) Skill Management: Mechanism to add members and assign skills categorized by proficiency (Beginner, Intermediate, Advanced).\n2) Mentorship Logic: A system to pair members with mentors to guide their development path.\n3) Progress Visualization: A dynamic 'status ladder' or progress graph to track and display member growth over time.\n\nDeliverables: 1) Core Application: A functional platform (Web or Mobile) implementing member management and skill leveling.\n2) Visualization Module: A dashboard featuring the progress graph or status ladder UI.\n3) Workflow Documentation: A brief explanation of the 'learning vs. attendance' logic and how the growth system scales.",
+    for: "senior",
+  }
 
-    for: "junior",
-  },
-  {
-    label: "app",
-    title: "Glitch in the System",
-    description:
-      "Build a Flutter sci-fi adventure where users play as a hacker trapped in a virtual world. They must navigate a corrupted system, solve logic-based puzzles, and bypass security layers to escape. Implement state management, branching paths, hacking-themed UI, and interactive terminals. Bonus: glitch effects, encryption puzzles, and adaptive soundscapes.",
-
-    for: "senior",
-  },
-
+,
   {
     label: "cp",
-    title: "Task: Implement a Simple Sorting Algorithm and Compare Performance",
+    title: "HackerRank Competition",
     description:
-      "Description: Create a program that implements a basic sorting algorithm (e.g., Bubble Sort, Selection Sort, Insertion Sort) and compare its performance with other sorting algorithms using time complexity analysis.",
+      "A HackerRank Competition will be held on 'Date To be Announced'.\n\n Link to the Competition: ",
     for: "junior",
   },
 
   {
     label: "cp",
     title:
-      "Task: Develop a Basic Library Management System with CRUD Operations",
+      "HackerRank Competition",
     description:
-      "Description: Build a simple command-line based library management system that allows users to manage books and members using basic CRUD (Create, Read, Update, Delete) operations directly within the application.",
-    for: "junior",
+      "A HackerRank Competition will be held on 'Date To be Announced'.\n\n Link to the Competition: ",
+    for: "senior",
   },
-];
+]

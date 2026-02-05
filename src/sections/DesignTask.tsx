@@ -34,8 +34,8 @@ const DesignTask = ({ selectedSubDomain, setSelectedSubDomain }: Props) => {
     // Based on the subdomain we are filtering the task
     const filteredTask = designTaskData.filter(
       (task) =>
-        task.label === selectedSubDomain &&
-        (isSC === true ? task.for === "senior" : task.for === "junior")
+        task.label === selectedSubDomain
+       //&&(isSC === true ? task.for === "senior" : task.for === "junior")
     );
     //console.log("hello",isSC)
     if (filteredTask) {
@@ -80,17 +80,10 @@ const DesignTask = ({ selectedSubDomain, setSelectedSubDomain }: Props) => {
           </button>
           <button
             type="button"
-            onClick={() => setSelectedSubDomain("3d")}
-            className="nes-btn is-error w-[47%] md:w-[22%] py-3 md:py-4 custom-nes-error text-xs hover:scale-105 transition-transform duration-200"
-          >
-            3D Modelling
-          </button>
-          <button
-            type="button"
             onClick={() => setSelectedSubDomain("video")}
             className="nes-btn is-error w-[47%] md:w-[22%] py-3 md:py-4 custom-nes-error text-xs hover:scale-105 transition-transform duration-200"
           >
-            Video / Photo
+            Video Editing
           </button>
         </div>
       )}
@@ -148,103 +141,86 @@ const designTaskData: Task[] = [
   {
     label: "ui",
     title:
-      "Designing a Personalized, Adaptive Learning Experience Through UI/UX",
+      "Recommendation Engine UI",
     description:
-      "Design the UI/UX for a new book-tracking app that motivates users to discover their own style and interests. Create a wireframe or prototype for key screens (e.g., dashboard, progress tracker, notifications). Implement features that encourage user engagement (e.g., streaks, reminders, social sharing). Ensure a visually appealing and user-friendly interface.",
+      "Create a sleek, context-aware interface for a recommendation engine that suggests media based on current mood, time availability, and social trends.\n\nBase Requirements: 1) Contextual Logic: Filtering systems for mood-based discovery and time-constrained viewing options.\n2) Social Integration: UI elements that highlight friend activity and community-driven suggestions.\n\nDeliverables: 1) Interactive Wireframes: Key screens for recommendation flows, browsing, and user preference settings.\n2) Engagement Suite: Designs for quick recommendation cards and a streamlined onboarding process.",
     resources: [],
     for: "senior",
   },
   {
     label: "ui",
     title:
-      "Designing a Personalized, Adaptive Learning Experience Through UI/UX",
+      "Food Delivery App UI",
     description:
-      "Design a UI/UX experience for a personalized learning platform that adapts to users' skill levels and interests in real time. Create a high-fidelity prototype for core screens, including dashboard, course progress, AI-powered recommendations, and interactive lesson modules. Implement dynamic UI elements that adapt based on user performance (e.g., difficulty adjustments, personalized content suggestions). Integrate gamification elements such as XP points, badges, and learning challenges to increase engagement. Ensure a smooth onboarding flow that tailors the experience based on user preferences and prior knowledge. Optimize for both mobile and desktop experiences with a responsive design.",
+      "Simplify a high-friction food delivery interface by stripping away cognitive overload and streamlining the path to purchase.\n\nBase Requirements: 1) Information Architecture: Strategic reduction of visual noise in dense menus and restaurant listings.\n2) Frictionless Navigation: A logical, high-clarity ordering journey that prioritizes speed and readability.\n\nDeliverables:1) High-Clarity Layouts: Redesigned screens for the home feed, restaurant cards, and live order tracking.\n2) Refined Component Set: A simplified design system for menu browsing and status indicators.",
     resources: [],
     for: "junior",
   },
   {
     label: "ui",
-    title: "UI/UX",
+    title: "Student Wellness App UI",
     description:
-      "Redesign Amazon’s user interface in the style of Spotify. New design must maintain its identity from both of its predecessors. Must show functionality, even with basic prototyping. BONUS POINTS if a new, unique logo is made.",
-    resources: [],
-    for: "senior",
-  },
-  {
-    label: "ui",
-    title:
-      "LinkedIn Reimagined: A Swipe-First Professional Networking Experience",
-    description:
-      "Reimagine LinkedIn’s user interface with the aesthetics and user flow of TikTok while maintaining its core professional identity. The redesign should blend LinkedIn’s professional networking features with TikTok’s visually engaging, swipe-based interface. Create key screens, including a vertical feed for content, an intuitive job search page, and a reimagined profile layout. Implement interactive features such as quick reactions, short video resumes, and AI-powered networking suggestions. The prototype should demonstrate fluid navigation, content discovery, and engagement mechanics. BONUS POINTS if you design a fresh, modernized LinkedIn logo that reflects this new dynamic experience.",
+      "Design a calming, gamified UI/UX for a student wellness app focused on habit building and mood tracking.\n\nBase Requirements: 1) Engagement Mechanics: Integration of streaks, rewards, and 'wellness quests' to drive habit consistency.\n2) Aesthetic Identity: A minimal, calming interface optimized for student stress reduction and simple navigation.\n\nDeliverables: 1) Core Wireframes: Mid-fidelity screens for the dashboard, habit tracker, and motivation hub.\n2) Functional Flow: A streamlined onboarding process and integrated mood-logging interface.",
     resources: [],
     for: "junior",
   },
   {
     label: "video",
-    title: "Video Editing Task 1",
+    title: "Mood Montage",
     description:
-      "Make a jitter-lapse video of anything that the VIT campus has to offer. Minimum length of video has to be 15-20 seconds. Music choice will be taken into consideration.",
+      "Your task is to create a video sequence that conveys a very specific mood or vibe, (e.g., Cyberpunk, Vintage 90s, or Melancholic Rainy Day). You may use your own footage or copyright free stock footage. The focus should be on how the visual style makes the viewer feel. Time Limit: Min 15 seconds - Max 30 seconds.\n\nExample: A video of the college campus at sunset, edited with warm, golden tones and soft visuals to create a nostalgic and peaceful feeling.",
     resources: [],
     for: "junior",
   },
   {
     label: "video",
-    title: "Video Editing Task 2",
+    title: "Technical Teaser",
     description:
-      "Create a reel using any trending idea for a fictional event called Innovator Of The Year, which is a crossover of a hackathon and a treasure hunt. Engaging Storyline & Hook – Highlight the unique hackathon + treasure hunt crossover with a fast-paced, exciting intro. Dynamic Visuals & Audio – Use smooth transitions, trending audio, and text overlays to keep the audience engaged. Clear CTA & Branding – Include the event name, date, and sign-up details with a strong call to action.",
+      "Your task is to create a high energy teaser video for an imaginary tech fest. Select a fast paced music track and edit footage so that the visuals change or react perfectly to the rhythm of the music.\nTime Limit: Min 30 seconds - Max 45 seconds.\n\nExample: A compilation of gaming or coding clips where every time the bass drops or the drum hits in the song, the video cuts to a new scene instantly.",
     resources: [],
     for: "senior",
   },
   {
     label: "video",
-    title: "Video Editing Task 2",
+    title: "Animated Annotations",
     description:
-      "Create a stop-motion promotional video showcasing a day in the life of a VIT student, capturing the energy and diversity of campus life. The video must be at least 20–30 seconds long and tell a cohesive story (e.g., morning classes, clubs, events, nightlife). Use smooth stop-motion animation with creative transitions between scenes. Music selection should enhance the storytelling and complement the fast-paced stop-motion style. BONUS POINTS for integrating motion graphics or animated text overlays to highlight key moments.",
+      "Your task is to explain a simple tech concept (like 'What is a Browser?' or 'Open Source') using primarily text and simple background elements. You do not need to film yourself, focus on how the text moves and appears on the screen.\nTime Limit: Min 15 seconds - Max 30 seconds.\n\nExample: A video where the words Fast,Secure, and Private fly onto the screen and animate in time with the background music. ",
     resources: [],
     for: "senior",
   },
   {
     label: "video",
-    title: "Video Editing Task 2",
+    title: "Regular Remixing",
     description:
-      "Produce a cinematic teaser trailer for a fictional competition, Innovator Royale, which blends a tech showdown with an escape-room-style challenge. The teaser should be 30–45 seconds long, building suspense and excitement. Incorporate high-energy editing, including fast cuts, dramatic music, and glitch effects to emphasize the high-stakes nature of the event. Use voiceover or impactful text animations to tease the competition’s mechanics and prizes. BONUS POINTS for including a cinematic logo animation for 'Innovator Royale' at the end.",
+      "Description: Your task is to record a short video of a daily activity (like walking to class or making coffee) but remove the original audio. You must then add sound effects (footsteps, wind, pouring sounds) from scratch to make it sound realistic and immersive.\nTime Limit: Min 20 seconds - Max 40 seconds.\n\nExample: A video of someone typing on a keyboard, where you have added exaggerated, crisp 'click-clack' sounds and the subtle hum of a computer fan to enhance the experience.",
     resources: [],
     for: "junior",
   },
 
   {
     label: "poster",
-    title: "Reimagining Identity and Events Through Graphic Design",
+    title: "Lyrical Layout",
     description:
-      "Your task is to recreate either a past event poster or a personalized poster that reflects your identity and interests. For the past event poster, choose any event from our archive, such as Gravitas or Riviera, and reimagine its promotional material with fresh creativity and design. Alternatively, craft a personalized poster that showcases who you are, including your passions, skills, and aspirations. Ensure that your poster design aligns with the organization's branding guidelines while incorporating innovative elements to captivate the audience's attention. Provide a brief rationale for your design choices and any inspiration sources utilized. Be prepared to present and discuss your poster during the evaluation process.",
+      "Design a poster that translates the song’s mood, energy, and emotion into visual form. Use colour, typography, and abstract or symbolic elements to capture the atmosphere of the music. Your poster should feel like the song brought to life through graphics, expressing its vibe in a bold and creative way.",
     resources: [],
     for: "junior",
   },
   {
     label: "poster",
-    title: "Reimagining Identity and Events Through Graphic Design",
+    title: "Creative Characterization",
     description:
-      "Your task is to recreate either a past event poster or a personalized poster that reflects your identity and interests. For the past event poster, choose any event from our archive, such as Gravitas or Riviera, and reimagine its promotional material with fresh creativity and design. Alternatively, craft a personalized poster that showcases who you are, including your passions, skills, and aspirations. Ensure that your poster design aligns with the organization's branding guidelines while incorporating innovative elements to captivate the audience's attention. Provide a brief rationale for your design choices and any inspiration sources utilized. Be prepared to present and discuss your poster during the evaluation process.",
+      "Your task is to craft a poster that visually represents your personal design identity. This may include your interests, aesthetic preferences, inspirations, or future aspirations. Use typography, shapes, textures, or illustrations that express who you are as a designer. The composition should be visually balanced, memorable, and reflective of your unique style. Include a short rationale describing the symbolism or choices behind your poster, and be prepared to discuss your creative approach during evaluation.",
+    resources: [],
+    for: "junior",
+    
+  },
+  {
+    label: "poster",
+    title: "Paradoxical Portrait",
+    description:
+      "Choose any contrasting pair (for e.g. - order vs. chaos, light vs. dark, or technology vs. nature) and reinterpret these ideas through a single cohesive composition. Use contrasting colours, balanced layouts, or mirrored elements to highlight the differences between the two themes while maintaining overall harmony. Ensure your poster feels visually striking, conceptually clear, and creatively expressive of the duality you selected.",
     resources: [],
     for: "senior",
-  },
-  {
-    label: "3d",
-    title: "3D Modelling",
-    description: "Recreate the following 2D image to a 3D model.",
-    resources: [
-      "https://drive.google.com/file/d/1GeoLTRphTOrNCvwJDFMstL2hDUocp76L/view?usp=sharing",
-    ],
-    for: "junior",
-  },
-  {
-    label: "3d",
-    title: "3D Modelling",
-    description: "Recreate the following 2D image to a 3D model.",
-    resources: [
-      "https://drive.google.com/file/d/1GeoLTRphTOrNCvwJDFMstL2hDUocp76L/view?usp=sharing",
-    ],
-    for: "senior",
+    
   },
 ];
