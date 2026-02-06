@@ -292,8 +292,9 @@ const techTaskData = [
     label: "cyber-sec",
     title: "Security Challenge: CTF",
     description:
-      "Use this link to code the picoCTF classroom and solve the challenges: CRiNMALYr",
+      "Join the picoCTF classroom using the classroom code CRiNMALYr. Visit https://picoctf.org/, sign in, navigate to 'Classrooms' → 'Join Classroom', and enter this code to access and solve the assigned challenges.",
     for: "junior",
+    resources:["https://play.picoctf.org/classrooms"]
   },
   {
     label: "cyber-sec",
@@ -336,8 +337,9 @@ const techTaskData = [
     label: "cp",
     title: "HackerRank Competition",
     description:
-      "A HackerRank Competition will be held on 'Date To be Announced'.\n\n Link to the Competition: ",
+      "A HackerRank Competition will be held from 9PM on 7th February to 9PM on 8th February. In the task submission page for the Competitive Programming round, please attach your name and a link to your Hackerrank profile. You may add other Competitive Programming User IDs as well.",
     for: "junior",
+    resources:["https://www.hackerrank.com/foxs-algo-1770343833"]
   },
 
   {
@@ -345,7 +347,8 @@ const techTaskData = [
     title:
       "HackerRank Competition",
     description:
-      "A HackerRank Competition will be held on 'Date To be Announced'.\n\n Link to the Competition: ",
+      "A HackerRank Competition will be held from 9PM on 7th February to 9PM on 8th February. In the task submission page for the Competitive Programming round, please attach your name and a link to your Hackerrank profile. You may add other Competitive Programming User IDs as well.",
     for: "senior",
+    resources:["https://www.hackerrank.com/foxs-algo-1770343833"]
   },
 ]
