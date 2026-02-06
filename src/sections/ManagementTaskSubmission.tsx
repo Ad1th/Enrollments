@@ -608,8 +608,8 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="General Operations"
-                checked={subdomain.includes("General Operations")}
+                value="generaloperations"
+                checked={subdomain.includes("generaloperations")}
                 onChange={handleCheckboxChange}
               />
               <span className="text-xs md:text-xs">General Operations</span>
@@ -618,8 +618,8 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="Outreach"
-                checked={subdomain.includes("Outreach")}
+                value="outreach"
+                checked={subdomain.includes("outreach")}
                 onChange={handleCheckboxChange}
               />
               <span className="text-xs md:text-xs">Outreach</span>
@@ -628,8 +628,8 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="Publicity"
-                checked={subdomain.includes("Publicity")}
+                value="publicity"
+                checked={subdomain.includes("publicity")}
                 onChange={handleCheckboxChange}
               />
               <span className="text-xs md:text-xs ">Publicity</span>
