@@ -11,11 +11,11 @@ const STATS = [
 ];
 
 const MILESTONES = [
-  { year: "2015", title: "The Genesis", description: "Founded at VIT with a mission to spread open-source culture and build a community of passionate developers." },
-  { year: "2017", title: "First Major Hackathon", description: "Hosted our inaugural hackathon with 200+ participants, putting MFC on the map as a leading tech club." },
-  { year: "2019", title: "Annual Tech Fest Launch", description: "Established our flagship annual event featuring workshops, speaker sessions, and competitions." },
-  { year: "2022", title: "150+ Member Milestone", description: "Grew into one of VIT's largest technical clubs with members across Technical, Design, and Management." },
-  { year: "2025", title: "A Decade of Impact", description: "Celebrating 10 years of innovation, countless success stories, and an ever-growing alumni network." },
+  { year: "2021", title: "Build. Break. Ship. Repeat.", description: "The year was driven by hands-on learning across web development, competitive coding, machine learning, cloud, and UI/UX through workshops, articles, and expert-led sessions. With a strong focus on practical skills and industry alignment, the events empowered learners to build, experiment, and grow confidently in the tech ecosystem." },
+  { year: "2022", title: "Tech-Packed MFC-VIT Year", description: "MFC‑VIT packed the year with hands‑on sessions across core tech domains like databases, Web3, metaverse, AR/VR, Git/GitHub, app development, design, and competitive coding, guided by experts and senior members. These initiatives turned learning into a high‑energy, community‑driven journey, helping students explore, upskill, and find their place in the evolving tech landscape. " },
+  { year: "2023", title: "Built to Endure", description: "Platforms launched. Traditions born. A legacy in motion.\nThe year marked the launch of Roommate Dhundho and the birth of Scavenger of the Year—two defining milestones that reshaped how the club built purpose and culture. What followed were immersive, campus-wide experiences that shaped identity and left a lasting mark. " },
+  { year: "2024", title: "Forged in Challenge", description: "Crowned Best Tech Club of the Year, 2024 set a benchmark for excellence. Pressure bred growth, inspiration fuelled ambition, and innovation became a mindset. A powerful session with leading coding voice Love Babbar sparked clarity and drive, while intense competitions and open innovation sharpened minds, strengthened teams, and built a culture rooted in challenge, curiosity, and growth. " },
+  { year: "2025", title: "From Spark to Surge", description: "Ideas ignited, teams conquered, creativity evolved, and tech met purpose—culminating in a high-energy hackathon and a powerful blend of mindfulness and cyber awareness. Along the way, collaboration turned ideas into action, curiosity shaped experiences, and every initiative added depth to a year driven by intent and imagination." },
 ];
 
 const DOMAINS = [
@@ -55,9 +55,9 @@ const WHY_JOIN = [
 ];
 
 const TESTIMONIALS = [
-  { name: "Arjun S.", role: "Tech Lead '23", quote: "MFC transformed my college life. The projects I worked on here got me my dream internship.", avatar: "👨‍💻" },
-  { name: "Priya M.", role: "Design Head '22", quote: "From zero design knowledge to leading a team — MFC gave me the platform to grow.", avatar: "👩‍🎨" },
-  { name: "Rahul K.", role: "Core Member '24", quote: "The mentorship and community here is unmatched. Best decision I made in college.", avatar: "🧑‍💼" },
+  { name: "Suvidh J.", role: "Project Head '25", quote: "MFC transformed my college life. The projects I worked on here got me my dream internship.", avatar: "👨‍💻" },
+  { name: "Abhinav G.", role: "Technical Head '25", quote: "From zero technical background to leading the engineering team — MFC gave me the platform to grow.", avatar: "👩‍🎨" },
+  { name: "Samriddhi S.", role: "Vice Chairperson '25", quote: "The mentorship and community here is unmatched. Best decision I made in college.", avatar: "🧑‍💼" },
 ];
 
 const About: React.FC = () => {
