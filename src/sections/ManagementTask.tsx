@@ -43,7 +43,7 @@ const ManagementTask = ({ selectedSubDomain, setSelectedSubDomain }: Props) => {
             { key: "Outreach", label: "Outreach" },
             { key: "General Ops", label: "General Ops" },
             { key: "Publicity", label: "Publicity" },
-            { key: "Editorial", label: "Editorial" },
+            { key: "Events", label: "Events" },
           ].map((item) => (
             <button
               key={item.key}
@@ -177,17 +177,24 @@ const managementTaskData = [
   },
   {
     "domain": "management",
-    "subdomain": "Editorial",
-    "title": "Evolving Event",
+    "subdomain": "Events",
+    "title": "Blueprint an Event",
     "for": "junior",
-    "question": "Design a unique, high-engagement tech event that avoids standard hackathon/workshop formats.\n\nRequirements: 1) Structure: 2–4 clear segments with a defined audience and purpose.\n2) Innovation: Use storytelling, gamification, or social media to drive immersion.\n\nDeliverables: 1) Concept: Unique theme and pitch (2–3 sentences).\n2) Flow & Timeline: Segmented activities with precise durations.\n3) Enhancements: Specific tactics for participant engagement."
+    "question": "Design a high-engagement tech event that does not follow standard formats like hackathons or workshops.\n\nBase Requirements: 1) Structure: 2–4 clear segments, each with a defined goal and target audience.\n2) Innovation: Use at least one of the following to drive immersion — storytelling, gamification, or social media interaction.\n\nDeliverables: 1) Event concept and theme (2–3 sentences).\n2) Segment-wise flow with approximate time durations.\n3) Specific engagement tactics used in each segment."
   },
   {
     "domain": "management",
-    "subdomain": "Editorial",
-    "title": "Innovative Icebreaker",
+    "subdomain": "Events",
+    "title": "Design the Journey",
     "for": "senior",
     "question": "Create a 3-stage gamified participant experience that transitions from puzzle-based icebreaking to skill challenges and final rewards.\n\nBase Requirements: 1) Progressive Structure: A linear 3-level flow (Puzzle → Skill → Reward).\n2) Engagement Mechanics: Integrated gamification at every stage to drive participation.\n\nDeliverables : 1) Level 1: Puzzle or icebreaker design.\n2) Level 2: Hands-on skill challenge or activity details.\n3) Level 3: Reward and recognition system."
+  },
+  {
+    "domain": "management",
+    "subdomain": "Events",
+    "title": "When Things Go Live",
+    "for": "senior",
+    "question": "You are leading an offline tech event scheduled for 200+ participants. One day before the event, the venue becomes unavailable.\n\nRequirements: 1) Propose a revised event plan that preserves participant value and engagement.\n2) Clearly justify any changes made to format, scale, or delivery mode.\n\nDeliverables: 1) Revised event structure (online / hybrid / alternate venue).\n2) 2. Communication strategy for participants and team.\n3) Key risks and how you would mitigate them."
   },
   {
     "domain": "management",

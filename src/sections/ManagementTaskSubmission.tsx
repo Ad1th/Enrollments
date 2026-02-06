@@ -638,11 +638,11 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
               <input
                 type="checkbox"
                 className="nes-checkbox is-dark"
-                value="Editorial"
-                checked={subdomain.includes("Editorial")}
+                value="events"
+                checked={subdomain.includes("events")}
                 onChange={handleCheckboxChange}
               />
-              <span className="text-xs md:text-xs">Editorial</span>
+              <span className="text-xs md:text-xs">Events</span>
             </label>
             
           </div>
@@ -844,7 +844,7 @@ const quizQuestions = [
   },
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 16,
     for: "junior",
     question:
@@ -852,15 +852,15 @@ const quizQuestions = [
   },
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 17,
     for: "junior",
     question:
-      "Do you have any ideas for a tech-driven editorial project the club could work on?",
+      "Do you have any ideas for a tech-driven events project the club could work on?",
   },
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 18,
     for: "junior",
     question:
@@ -868,7 +868,7 @@ const quizQuestions = [
   },
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 19,
     for: "junior",
     question:
@@ -876,7 +876,7 @@ const quizQuestions = [
   },
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 20,
     for: "junior",
     question:
@@ -1053,7 +1053,7 @@ const quizQuestions = [
   },
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 16,
     for: "senior",
     question:
@@ -1061,33 +1061,33 @@ const quizQuestions = [
   },
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 17,
     for: "senior",
     question:
-      "What techniques would you use to ensure the accuracy and objectivity of your editorial content?",
+      "What techniques would you use to ensure the accuracy and objectivity of your events content?",
   },
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 18,
     for: "senior",
     question:
-      "How would you go about researching and fact-checking information for a piece of editorial content?",
+      "How would you go about researching and fact-checking information for a piece of events content?",
   },
 
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 19,
     for: "senior",
     question:
-      "What strategies would you use to ensure that your editorial content is inclusive and representative of diverse perspectives?",
+      "What strategies would you use to ensure that your events content is inclusive and representative of diverse perspectives?",
   },
 
   {
     domain: "management",
-    subdomain: "editorial",
+    subdomain: "events",
     label: 20,
     for: "senior",
     question:
