@@ -56,7 +56,7 @@ const WHY_JOIN = [
 
 const TESTIMONIALS = [
   { name: "Suvidh J.", role: "Project Head '25", quote: "MFC transformed my college life. The projects I worked on here got me my dream internship.", avatar: "👨‍💻" },
-  { name: "Abhinav G.", role: "Technical Head '25", quote: "From zero design knowledge to leading a team — MFC gave me the platform to grow.", avatar: "👩‍🎨" },
+  { name: "Abhinav G.", role: "Technical Head '25", quote: "From zero technical background to leading the engineering team — MFC gave me the platform to grow.", avatar: "👩‍🎨" },
   { name: "Samriddhi S.", role: "Vice Chairperson '25", quote: "The mentorship and community here is unmatched. Best decision I made in college.", avatar: "🧑‍💼" },
 ];
 
