@@ -59,11 +59,29 @@ const VerifyOTP: React.FC = () => {
       );
 
       if (response.data.message === "verified") {
+        // Verifying the OTP is the last step of signup, so drop the user
+        // straight into the dashboard with the session the backend just
+        // issued instead of bouncing them to the landing page to log in.
+        const sessionToken = response.data.token || token;
+        Cookies.set("jwtToken", sessionToken, { secure: true });
+        if (response.data.refreshToken) {
+          Cookies.set("refreshToken", response.data.refreshToken, {
+            secure: true,
+          });
+        }
+
+        secureLocalStorage.setItem("id", response.data.id);
+        secureLocalStorage.setItem("name", response.data.username);
+        secureLocalStorage.setItem("email", response.data.email);
+        secureLocalStorage.setItem("gmeetLink", response.data.gmeetlink ?? null);
+        secureLocalStorage.setItem(
+          "scheduledTime",
+          response.data.scheduledTime ?? null
+        );
+
         showToast("OTP verified successfully!", "success");
 
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        await fetchUserDetails(response.data.id, sessionToken);
       } else {
         showToast(response.data.message, "error");
       }
@@ -72,6 +90,27 @@ const VerifyOTP: React.FC = () => {
       showToast("Failed to verify OTP. Please try again.", "error");
     } finally {
       setLoading(false);
+    }
+  };
+
+  /**
+   * Mirrors the login flow: cache the user record the dashboard reads, then
+   * land on the dashboard whether or not that fetch succeeds.
+   */
+  const fetchUserDetails = async (userId: string, token: string) => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/user/user/${userId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      secureLocalStorage.setItem("userDetails", JSON.stringify(response.data));
+    } catch (err) {
+      console.error("Error fetching user details:", err);
+    } finally {
+      navigate("/dashboard", { replace: true });
     }
   };
 
