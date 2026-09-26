@@ -6,6 +6,7 @@ import secureLocalStorage from "react-secure-storage";
 import Cookies from "js-cookie";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import api from "../api/client";
 import { useNavigate } from "react-router-dom";
 import CustomToast, { ToastContent } from "../components/CustomToast";
 
@@ -263,16 +264,12 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
 
     setIsLoading(true);
     const meetingDetails = {
-      candidateId: id,
       domains,
       scheduletime: scheduleTime,
     };
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/meet/schedule`,
-        meetingDetails
-      );
+      const response = await api.post("/api/meet/schedule", meetingDetails);
 
       const link = response.data.data.gmeetLink;
       const time = response.data.data.scheduledTime;
@@ -311,10 +308,7 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     try {
-      await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/meet/cancel`,
-        { candidateId: id }
-      );
+      await api.post("/api/meet/cancel");
 
       Cookies.remove("jwtToken");
       secureLocalStorage.clear();
