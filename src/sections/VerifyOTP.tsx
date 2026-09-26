@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, NavLink, useParams } from "react-router-dom";
 import axios from "axios";
+import api from "../api/client";
 import Cookies from "js-cookie";
 import secureLocalStorage from "react-secure-storage";
 import OtpInput from "react-otp-input";
@@ -48,15 +49,7 @@ const VerifyOTP: React.FC = () => {
 
       setLoading(true);
 
-      const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/auth/verifyotp/${id}`,
-        { otp },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await api.post(`/auth/verifyotp/${id}`, { otp });
 
       if (response.data.message === "verified") {
         // Verifying the OTP is the last step of signup, so drop the user
@@ -81,7 +74,7 @@ const VerifyOTP: React.FC = () => {
 
         showToast("OTP verified successfully!", "success");
 
-        await fetchUserDetails(response.data.id, sessionToken);
+        await fetchUserDetails(response.data.id);
       } else {
         showToast(response.data.message, "error");
       }
@@ -97,14 +90,9 @@ const VerifyOTP: React.FC = () => {
    * Mirrors the login flow: cache the user record the dashboard reads, then
    * land on the dashboard whether or not that fetch succeeds.
    */
-  const fetchUserDetails = async (userId: string, token: string) => {
+  const fetchUserDetails = async (userId: string) => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/user/user/${userId}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await api.get(`/user/user/${userId}`);
 
       secureLocalStorage.setItem("userDetails", JSON.stringify(response.data));
     } catch (err) {
@@ -126,15 +114,7 @@ const VerifyOTP: React.FC = () => {
 
       setResending(true);
 
-      const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/auth/resendotp/${id}`,
-        { email },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await api.post(`/auth/resendotp/${id}`, { email });
 
       if (response.data.message) {
         showToast(response.data.message, "success");
