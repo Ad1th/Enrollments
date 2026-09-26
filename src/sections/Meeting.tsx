@@ -71,93 +71,21 @@ const Meeting = () => {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const id = secureLocalStorage.getItem("id");
-      if (!id) {
-        console.error("User id not found in secureLocalStorage");
-        return;
-      }
+    const id = secureLocalStorage.getItem("id");
+    if (!id) {
+      console.error("User id not found in secureLocalStorage");
+      return;
+    }
 
-      const token = Cookies.get("jwtToken");
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/applicatiostatus/statustech/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (response.data) {
-          setStatusTech(response.data.passed);
-          console.log(response.data.passed);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    const fetchPassed = (domain: string) =>
+      api
+        .get(`/applicatiostatus/status${domain}/${id}`)
+        .then((response) => response.data?.passed)
+        .catch((error) => console.error(error));
 
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const id = secureLocalStorage.getItem("id");
-      if (!id) {
-        console.error("User id not found in secureLocalStorage");
-        return;
-      }
-
-      const token = Cookies.get("jwtToken");
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL
-          }/applicatiostatus/statusdesign/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (response.data) {
-          setStatusDesign(response.data.passed);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const id = secureLocalStorage.getItem("id");
-      if (!id) {
-        console.error("User id not found in secureLocalStorage");
-        return;
-      }
-
-      const token = Cookies.get("jwtToken");
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL
-          }/applicatiostatus/statusmanagement/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (response.data) {
-          setStatusManagement(response.data.passed);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
+    fetchPassed("tech").then(setStatusTech);
+    fetchPassed("design").then(setStatusDesign);
+    fetchPassed("management").then(setStatusManagement);
   }, []);
 
   useEffect(() => {
