@@ -301,24 +301,6 @@ const ManagementTaskSubmission = ({ setOpenToast, setToastContent }: Props) => {
       } catch (err) {
         console.error("Emergency save failed:", err);
       }
-
-      if (navigator.onLine && id) {
-        const token = Cookies.get("jwtToken");
-        if (token) {
-          const payload: Record<string, string[]> = { subdomain };
-          Object.entries(formData).forEach(([key, value]) => {
-            if (value?.[1]?.trim()) {
-              payload[key] = [value[1]];
-            }
-          });
-
-          const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
-          navigator.sendBeacon(
-            `${import.meta.env.VITE_BASE_URL}/upload/management/${id}?token=${token}`,
-            blob
-          );
-        }
-      }
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
