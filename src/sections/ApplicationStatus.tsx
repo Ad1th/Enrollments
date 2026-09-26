@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import TechApplicationStatus from "./TechApplicationStatus";
-import DesignApplicationStatus from "./DesignApplicationStatus";
-import ManagementApplicationStatus from "./ManagementApplicationStatus";
+import DomainApplicationStatus from "./DomainApplicationStatus";
 import secureLocalStorage from "react-secure-storage";
 
 interface UserDetails {
@@ -90,13 +88,13 @@ const ApplicationStatus = () => {
           )}
           {Array.isArray(domains) &&
             domains.includes("tech") &&
-            selectedDomain === 0 && <TechApplicationStatus />}
+            selectedDomain === 0 && <DomainApplicationStatus domain="tech" />}
           {Array.isArray(domains) &&
             domains.includes("design") &&
-            selectedDomain === 1 && <DesignApplicationStatus />}
+            selectedDomain === 1 && <DomainApplicationStatus domain="design" />}
           {Array.isArray(domains) &&
             domains.includes("management") &&
-            selectedDomain === 2 && <ManagementApplicationStatus />}
+            selectedDomain === 2 && <DomainApplicationStatus domain="management" />}
         </div>
       </div>
     </div>
