@@ -238,15 +238,18 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
     try {
       await api.post("/api/meet/cancel");
 
-      Cookies.remove("jwtToken");
-      secureLocalStorage.clear();
+      secureLocalStorage.removeItem("gmeetLink");
+      secureLocalStorage.removeItem("scheduledTime");
 
       setGmeet("");
       setScheduledTime("");
       setShowBooked(false);
+      setOpenToast(true);
+      setToastContent({
+        message: "Slot cancelled. Pick a new one whenever you're ready.",
+        type: "success",
+      });
 
-      navigate("/");
-      
     } catch(error) {
       console.error("Error cancelling meeting:", error);
       setOpenToast(true);
