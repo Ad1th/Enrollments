@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import secureLocalStorage from "react-secure-storage";
 import api from "../api/client";
+import { Repo } from "../api/candidate";
+import RepoPicker from "../components/RepoPicker";
 import { ToastContent } from "../components/CustomToast";
 import {
   DraftResumeModal,
@@ -91,6 +93,15 @@ const TaskForm = ({ domain, setOpenToast, setToastContent }: Props) => {
     if (fieldErrors[key]) setFieldErrors(({ [key]: _, ...rest }) => rest);
   };
 
+  // Appends a repo in the "[Title] - [Github Link] - [Demo Link]" format the
+  // portfolio question asks for.
+  const importRepo = (key: string, repo: Repo) => {
+    const line = [repo.name, repo.url, repo.homepage].filter(Boolean).join(" - ");
+    const current = answers[key]?.trimEnd() ?? "";
+    if (current.includes(repo.url)) return;
+    setAnswer(key, current ? `${current}\n${line}` : line);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (submitting || !id) return;
@@ -150,6 +161,11 @@ const TaskForm = ({ domain, setOpenToast, setToastContent }: Props) => {
           <label htmlFor={q.key} style={{ color: "#fff" }} className="w-full text-label text-xs mb-2">
             {q.prompt}
           </label>
+        )}
+        {q.kind === "portfolio" && domain === "tech" && (
+          <div className="flex justify-end mb-2">
+            <RepoPicker onPick={(repo) => importRepo(q.key, repo)} />
+          </div>
         )}
         <textarea
           id={q.key}

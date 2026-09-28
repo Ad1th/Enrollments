@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import api from "../api/client";
+import { rescheduleInterview } from "../api/candidate";
 import { useNavigate } from "react-router-dom";
 import CustomToast, { ToastContent } from "../components/CustomToast";
 
@@ -117,6 +118,21 @@ const Meeting = () => {
       }
     };
     fetchId();
+  }, []);
+
+  // The server is the source of truth for the booking; local storage is only
+  // a fast first paint.
+  useEffect(() => {
+    api
+      .get("/api/meet/mine")
+      .then((res) => {
+        const booking = res.data?.data;
+        setGmeet(booking?.gmeetLink ?? "");
+        setScheduledTime(booking?.scheduledTime ?? "");
+        secureLocalStorage.setItem("gmeetLink", booking?.gmeetLink ?? "");
+        secureLocalStorage.setItem("scheduledTime", booking?.scheduledTime ?? "");
+      })
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -230,6 +246,35 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
       setIsLoading(false);
     }
 
+  };
+
+  const handleReschedule = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!date || !time) {
+      setOpenToast(true);
+      setToastContent({ message: "Pick the new date and time first", type: "error" });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const res = await rescheduleInterview(scheduleTime);
+      const link = res.data.gmeetLink;
+      const newTime = res.data.scheduledTime;
+      secureLocalStorage.setItem("gmeetLink", link);
+      secureLocalStorage.setItem("scheduledTime", newTime);
+      setGmeet(link);
+      setScheduledTime(newTime);
+      setOpenToast(true);
+      setToastContent({ message: "Interview moved. A new invite is on its way.", type: "success" });
+    } catch (error) {
+      const message = axios.isAxiosError(error)
+        ? error.response?.data?.error || error.response?.data?.message
+        : null;
+      setOpenToast(true);
+      setToastContent({ message: message || "Couldn't reschedule, try another slot.", type: "error" });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleCancel = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -436,6 +481,16 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
                         ? "Hold Tight! Booking Your Slot"
                         : "Book Your Slot"}
                 </Button>
+
+                {gmeet && !showBooked && (
+                  <Button
+                    className={"text-white font-medium py-2 px-4 rounded-md transition-all duration-300"}
+                    onClick={handleReschedule}
+                    disabled={isLoading || !date || !time}
+                  >
+                    {isLoading ? "Moving your slot..." : date && time ? "Move to selected slot" : "Pick a new slot to reschedule"}
+                  </Button>
+                )}
               </div>
             </div>
           </div>
