@@ -24,6 +24,7 @@ import { KonamiEffect, KonamiProgressIndicator, useKonamiCode } from "./hooks/us
 import { useCursorTrail, useClickEffect } from "./hooks/useCursorTrail";
 import { ScreenShakeProvider } from "./hooks/useScreenShake";
 import { initConsoleEasterEgg } from "./utils/consoleEasterEgg";
+import GithubCallback from "./sections/GithubCallback";
 
 function App() {
   const { isActivated: konamiActivated, setIsActivated: setKonamiActivated, progress: konamiProgress } = useKonamiCode();
@@ -58,6 +59,7 @@ function App() {
                 <Route path="/dashboard" element={<ProtectedRoute><LazyDashboard /></ProtectedRoute>} />
                 <Route path="/profile" element={<ProtectedRoute><LazyChangeProfile /></ProtectedRoute>} />
                 <Route path="/meeting" element={<ProtectedRoute><LazyMeeting /></ProtectedRoute>} />
+                <Route path="/github/callback" element={<ProtectedRoute><GithubCallback /></ProtectedRoute>} />
 
                 <Route path="/" element={<LazyLanding />} />
                 <Route path="/verifyotp/:id" element={<LazyVerifyOTP />} />

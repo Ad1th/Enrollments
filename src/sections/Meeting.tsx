@@ -6,6 +6,8 @@ import secureLocalStorage from "react-secure-storage";
 import Cookies from "js-cookie";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import api from "../api/client";
+import { rescheduleInterview } from "../api/candidate";
 import { useNavigate } from "react-router-dom";
 import CustomToast, { ToastContent } from "../components/CustomToast";
 
@@ -70,93 +72,21 @@ const Meeting = () => {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const id = secureLocalStorage.getItem("id");
-      if (!id) {
-        console.error("User id not found in secureLocalStorage");
-        return;
-      }
+    const id = secureLocalStorage.getItem("id");
+    if (!id) {
+      console.error("User id not found in secureLocalStorage");
+      return;
+    }
 
-      const token = Cookies.get("jwtToken");
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/applicatiostatus/statustech/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (response.data) {
-          setStatusTech(response.data.passed);
-          console.log(response.data.passed);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    const fetchPassed = (domain: string) =>
+      api
+        .get(`/applicatiostatus/status${domain}/${id}`)
+        .then((response) => response.data?.passed)
+        .catch((error) => console.error(error));
 
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const id = secureLocalStorage.getItem("id");
-      if (!id) {
-        console.error("User id not found in secureLocalStorage");
-        return;
-      }
-
-      const token = Cookies.get("jwtToken");
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL
-          }/applicatiostatus/statusdesign/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (response.data) {
-          setStatusDesign(response.data.passed);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const id = secureLocalStorage.getItem("id");
-      if (!id) {
-        console.error("User id not found in secureLocalStorage");
-        return;
-      }
-
-      const token = Cookies.get("jwtToken");
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL
-          }/applicatiostatus/statusmanagement/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (response.data) {
-          setStatusManagement(response.data.passed);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
+    fetchPassed("tech").then(setStatusTech);
+    fetchPassed("design").then(setStatusDesign);
+    fetchPassed("management").then(setStatusManagement);
   }, []);
 
   useEffect(() => {
@@ -188,6 +118,21 @@ const Meeting = () => {
       }
     };
     fetchId();
+  }, []);
+
+  // The server is the source of truth for the booking; local storage is only
+  // a fast first paint.
+  useEffect(() => {
+    api
+      .get("/api/meet/mine")
+      .then((res) => {
+        const booking = res.data?.data;
+        setGmeet(booking?.gmeetLink ?? "");
+        setScheduledTime(booking?.scheduledTime ?? "");
+        secureLocalStorage.setItem("gmeetLink", booking?.gmeetLink ?? "");
+        secureLocalStorage.setItem("scheduledTime", booking?.scheduledTime ?? "");
+      })
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -263,16 +208,12 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
 
     setIsLoading(true);
     const meetingDetails = {
-      candidateId: id,
       domains,
       scheduletime: scheduleTime,
     };
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/meet/schedule`,
-        meetingDetails
-      );
+      const response = await api.post("/api/meet/schedule", meetingDetails);
 
       const link = response.data.data.gmeetLink;
       const time = response.data.data.scheduledTime;
@@ -307,24 +248,53 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
 
   };
 
+  const handleReschedule = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!date || !time) {
+      setOpenToast(true);
+      setToastContent({ message: "Pick the new date and time first", type: "error" });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const res = await rescheduleInterview(scheduleTime);
+      const link = res.data.gmeetLink;
+      const newTime = res.data.scheduledTime;
+      secureLocalStorage.setItem("gmeetLink", link);
+      secureLocalStorage.setItem("scheduledTime", newTime);
+      setGmeet(link);
+      setScheduledTime(newTime);
+      setOpenToast(true);
+      setToastContent({ message: "Interview moved. A new invite is on its way.", type: "success" });
+    } catch (error) {
+      const message = axios.isAxiosError(error)
+        ? error.response?.data?.error || error.response?.data?.message
+        : null;
+      setOpenToast(true);
+      setToastContent({ message: message || "Couldn't reschedule, try another slot.", type: "error" });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleCancel = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     try {
-      await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/meet/cancel`,
-        { candidateId: id }
-      );
+      await api.post("/api/meet/cancel");
 
-      Cookies.remove("jwtToken");
-      secureLocalStorage.clear();
+      secureLocalStorage.removeItem("gmeetLink");
+      secureLocalStorage.removeItem("scheduledTime");
 
       setGmeet("");
       setScheduledTime("");
       setShowBooked(false);
+      setOpenToast(true);
+      setToastContent({
+        message: "Slot cancelled. Pick a new one whenever you're ready.",
+        type: "success",
+      });
 
-      navigate("/");
-      
     } catch(error) {
       console.error("Error cancelling meeting:", error);
       setOpenToast(true);
@@ -511,6 +481,16 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
                         ? "Hold Tight! Booking Your Slot"
                         : "Book Your Slot"}
                 </Button>
+
+                {gmeet && !showBooked && (
+                  <Button
+                    className={"text-white font-medium py-2 px-4 rounded-md transition-all duration-300"}
+                    onClick={handleReschedule}
+                    disabled={isLoading || !date || !time}
+                  >
+                    {isLoading ? "Moving your slot..." : date && time ? "Move to selected slot" : "Pick a new slot to reschedule"}
+                  </Button>
+                )}
               </div>
             </div>
           </div>
