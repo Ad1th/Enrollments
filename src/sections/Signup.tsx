@@ -161,15 +161,15 @@ const Signup: React.FC = () => {
         />
       )}
       <BoundingBox>
-        <div className="w-full h-full relative z-[100] flex flex-col md:flex-row justify-between">
-          <div className="signup-info text-center md:text-left  flex-col justify-center hidden md:inline-flex items-center md:items-start p-3 md:p-8 md:mt-0 ">
-            <h1 className="text-[2.2rem] md:text-[3rem] font-bold text-prime tracking-wide hidden md:inline-flex">
+        <div className="w-full h-full relative z-[100] flex flex-col lg:flex-row justify-between">
+          <div className="signup-info text-center lg:text-left  flex-col justify-center hidden lg:inline-flex items-center lg:items-start p-3 md:p-8 md:mt-0 ">
+            <h1 className="text-[2.2rem] md:text-[3rem] font-bold text-prime tracking-wide hidden lg:inline-flex">
               MOZILLA FIREFOX
             </h1>
-            <span className="text-light text-lg md:text-2xl mt-2 md:mt-4 hidden md:inline-flex">
+            <span className="text-light text-lg md:text-2xl mt-2 md:mt-4 hidden lg:inline-flex">
               IS RECRUITING
             </span>
-            <div className="mt-6 text-sm md:text-base hidden md:block">
+            <div className="mt-6 text-sm md:text-base hidden lg:block">
               <div className="text-white mb-2 md:mb-4">
                 Already have an account?
               </div>
@@ -180,7 +180,7 @@ const Signup: React.FC = () => {
                 Login Here &rarr;
               </NavLink>
             </div>
-            <section className="icon-list  gap-4 mt-6 justify-center hidden md:inline-flex">
+            <section className="icon-list  gap-4 mt-6 justify-center hidden lg:inline-flex">
               <a
                 href="https://www.instagram.com/mfc_vit"
                 target="_blank"
@@ -209,9 +209,9 @@ const Signup: React.FC = () => {
             </section>
           </div>
 
-          <div className="flex-grow  text-white rounded-lg shadow-lg p-2 mt-0 md:mt-0">
-            <div className="text-center block md:hidden">
-              <h1 className="text-2xl sm:text-3xl md:text-[3rem] font-bold text-prime tracking-wide">
+          <div className="flex-grow text-white rounded-lg shadow-lg p-2 mt-0 pb-32 lg:pb-2">
+            <div className="text-center block lg:hidden">
+              <h1 className="text-2xl sm:text-3xl font-bold leading-tight text-prime tracking-wide">
                 MOZILLA FIREFOX
               </h1>
               <span className="text-base sm:text-4xl text-light mt-2">
@@ -219,7 +219,7 @@ const Signup: React.FC = () => {
               </span>
             </div>
 
-            <div className="text-center mt-6 block md:hidden">
+            <div className="text-center mt-6 block lg:hidden">
               <h2 className="text-lg sm:text-xl font-bold text-white">
                 SIGNUP PAGE
               </h2>
@@ -318,7 +318,7 @@ const Signup: React.FC = () => {
               </Button>
             </form>
 
-            <div className="mt-8 block md:hidden text-center">
+            <div className="mt-8 block lg:hidden text-center">
               <div className="text-white mb-4">Already have an account?</div>
               <NavLink
                 className="nes-btn bg-prime hover:bg-prime/90 text-black px-4 py-2 rounded block mx-auto w-2/3 text-center"
@@ -361,9 +361,9 @@ const Signup: React.FC = () => {
         <img
           src="/background.png"
           alt=""
-          className="w-full hidden md:block absolute bottom-0 invert brightness-[50%] left-0"
+          className="w-full hidden lg:block absolute bottom-0 invert brightness-[50%] left-0"
         />
-        <div className="fixed bottom-0 w-full md:hidden opacity-75">
+        <div className="absolute bottom-0 w-full lg:hidden opacity-75 pointer-events-none">
           <img
             src="/empty-bg.png"
             alt=""

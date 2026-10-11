@@ -128,7 +128,7 @@ const VerifyOTP: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex-grow h-[100vh] md:h-full relative flex justify-center items-center text-dark p-4 md:p-12">
+    <div className="w-full flex-grow min-h-[100dvh] lg:h-full relative flex justify-center items-center text-dark p-4 md:p-12">
       {toast.open && (
         <CustomToast
           setToast={(open) => 
@@ -147,11 +147,11 @@ const VerifyOTP: React.FC = () => {
       )}
 
       <BoundingBox>
-        <div className="w-full relative z-[100] flex justify-between flex-col md:flex-row mt-8">
-          <div className="heading text-center md:text-left">
-            <h1 className={`text-prime font-bold whitespace-pre-line transition-all duration-500 ease-in-out text-5xl lg:text-3/2 lg:mt-5 mb-10`}>
+        <div className="w-full relative z-[100] flex justify-between flex-col lg:flex-row mt-8 pb-32 lg:pb-0">
+          <div className="heading text-center lg:text-left">
+            <h1 className={`text-prime font-bold whitespace-pre-line transition-all duration-500 ease-in-out text-3xl sm:text-4xl lg:text-5xl lg:mt-5 mb-3 lg:mb-10`}>
               MOZILLA </h1>
-            <h1 className={`text-prime font-bold whitespace-pre-line transition-all duration-500 ease-in-out text-5xl lg:text-3/2 lg:mt-5 `}>FIREFOX
+            <h1 className={`text-prime font-bold whitespace-pre-line transition-all duration-500 ease-in-out text-3xl sm:text-4xl lg:text-5xl lg:mt-5 `}>FIREFOX
             </h1>
 
             <div className="text-light text-base md:text-xl sm:text-2xl lg:mt-4 block text-center  lg:text-left">
@@ -168,16 +168,17 @@ const VerifyOTP: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex-grow h-full p-4 md:p-8 md:mt-24 flex justify-center items-center ">
+          <div className="flex-grow h-full p-2 sm:p-4 lg:p-8 lg:mt-24 flex justify-center items-center ">
             <form
-              className="flex flex-col gap-3 md:gap-6 w-full md:w-fit sm:w-fit justify-center items-center mx-auto"
+              className="flex flex-col gap-3 md:gap-6 w-full max-w-md justify-center items-center mx-auto"
               onSubmit={handleVerifyOTP}
             >
               <OtpInput
                 value={otp}
                 onChange={setOTP}
                 numInputs={6}
-                renderSeparator={<span className="hidden md:block">-</span>}
+                containerStyle={{ width: "100%", display: "flex", justifyContent: "center", gap: "0.4rem" }}
+                renderSeparator={<span className="hidden lg:block">-</span>}
                 renderInput={(props) => (
                   <input
                     {...props}
@@ -213,10 +214,10 @@ const VerifyOTP: React.FC = () => {
         <img
           src="/background.png"
           alt=""
-          className="hidden md:block absolute bottom-0 invert brightness-[50%] left-0 scale-95"
+          className="hidden lg:block absolute bottom-0 invert brightness-[50%] left-0 scale-95"
         />
 
-        <div className="absolute bottom-0 w-full md:hidden">
+        <div className="absolute bottom-0 w-full lg:hidden pointer-events-none">
           <img
             src="/empty-bg.png"
             alt=""
@@ -243,4 +244,4 @@ const VerifyOTP: React.FC = () => {
   );
 };
 
-export default VerifyOTP;
+export default VerifyOTP;
