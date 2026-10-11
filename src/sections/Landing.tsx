@@ -125,13 +125,9 @@ const Landing = () => {
 
       <BoundingBox>
         <div 
-          className="w-full h-full relative z-[100] flex lg:justify-between items-start flex-col lg:flex-row pt-4 lg:pt-8"
-          style={{
-            transform: isGameExpanded ? 'translateY(0px)' : 'translateY(100px)',
-            transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
-          }}
+          className={`w-full h-full relative z-[100] flex lg:justify-between items-start flex-col lg:flex-row pt-4 lg:pt-8 pb-24 lg:pb-0 transition-transform duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${isGameExpanded ? 'lg:translate-y-0' : 'lg:translate-y-[100px]'}`}
         >
-          <div className="heading text-center md:text-left flex flex-col items-center lg:items-start z-[100]">
+          <div className="heading w-full lg:w-auto text-center lg:text-left flex flex-col items-center lg:items-start z-[100]">
             <div className={`flex flex-col items-center lg:items-start transition-all duration-500 ease-in-out ${isPlayButton ? 'text-[2rem]' : 'md:text-[3rem]'}`}>
               <h1 className={`text-prime font-bold leading-tight whitespace-pre-line transition-all duration-500 ease-in-out lg:mt-8 
             ${isPlayButton ? 'text-3xl sm:text-4xl md:text-3xl lg:text-3xl lg:mt-[0.4375rem] ' : 'text-3xl sm:text-3xl md:text-3xl lg:text-[2.6rem] lg:mt-16'}`}>
@@ -167,8 +163,7 @@ const Landing = () => {
           </div>
 
           <div 
-            className="p-4 lg:pt-0 lg:px-8 lg:pb-0 mt-4 mb-4 md:-mt-8 max-w-full max-h-full z-[100]"
-            style={{ transform: 'translateX(-75px)' }}
+            className="p-4 lg:pt-0 lg:px-8 lg:pb-0 mt-4 mb-4 lg:-mt-8 lg:-translate-x-[75px] w-full lg:w-auto max-w-full max-h-full z-[100]"
           >
             <form
               className="form-container flex flex-col mt-4 lg:mt-0 gap-3 md:gap-4 w-full lg:w-[80%] xl:w-[400px] mx-auto shadow-lg rounded-lg"
