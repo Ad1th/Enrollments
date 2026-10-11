@@ -27,7 +27,7 @@ const NavbarComponent = () => {
   ];
 
   return (
-    <nav className="nav h-full w-full md:max-w-[100px] flex flex-row md:flex-col justify-around items-center border-dashed border-2 border-spacing-4 md:border-spacing-8 border-prime md:border-r-0 p-4 md:p-0 sm:border-b-2">
+    <nav className="nav h-full w-full lg:max-w-[100px] flex flex-row lg:flex-col justify-around items-center border-dashed border-2 border-spacing-4 lg:border-spacing-8 border-prime lg:border-r-0 p-4 lg:p-0 sm:border-b-2">
       {menuItems.map((item) => (
         <div
           key={item.id}

@@ -190,7 +190,9 @@
   }
 
   .faq-item {
-    padding: 20px;
+    padding: 14px;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .avatar {

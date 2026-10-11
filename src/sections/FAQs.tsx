@@ -76,7 +76,7 @@ const FAQs = () => {
   }, []); // run once on mount
 
   return (
-    <div className="w-full min-h-screen h-full flex flex-col md:flex-row justify-center items-center pt-0 px-4 overflow-auto">
+    <div className="w-full min-h-screen h-full flex flex-col lg:flex-row justify-center items-center pt-0 px-4 overflow-auto">
       <Navbar />
       <BoundingBox className="relative overflow-hidden">
         <div className="faq-page-container h-full custom-scroll overflow-y-auto" ref={faqRef}>

@@ -27,7 +27,7 @@ const Input: React.FC<Props> = ({
   const isFilled = Boolean(value && value.length > 0);
 
   return (
-    <div className={`relative input-container flex flex-grow w-full ${className}`}>
+    <div className={`relative input-container flex flex-grow w-full ${type === "password" ? "has-toggle" : ""} ${className}`}>
       <label htmlFor={inputName} className="sr-only">{label}</label>
       <input
         id={inputName}

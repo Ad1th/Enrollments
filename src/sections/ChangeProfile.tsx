@@ -241,8 +241,8 @@ const ChangeProfile = () => {
 
   if (isLoading) {
     return (
-      // <div className="w-full min-h-screen h-full bg-black p-4 flex flex-grow flex-col md:flex-row">
-      <div className="w-full min-h-screen h-full bg-black pt-0 px-4 flex flex-grow flex-col md:flex-row">
+      // <div className="w-full min-h-screen h-full bg-black p-4 flex flex-grow flex-col lg:flex-row">
+      <div className="w-full min-h-screen h-full bg-black pt-0 px-4 flex flex-grow flex-col lg:flex-row">
         <Navbar />
         <BoundingBox className="items-center justify-center">
           <div className="nes-container is-rounded is-dark">
@@ -255,7 +255,7 @@ const ChangeProfile = () => {
 
   if (error && domain.length === 0) {
     return (
-      <div className="w-full min-h-screen h-full bg-black p-4 flex flex-grow flex-col md:flex-row">
+      <div className="w-full min-h-screen h-full bg-black p-4 flex flex-grow flex-col lg:flex-row">
         <Navbar />
         <BoundingBox className="items-center justify-center">
           <div className="nes-container is-rounded is-dark text-center">
@@ -278,11 +278,11 @@ const ChangeProfile = () => {
   }
 
   return (
-    // <div className="w-full min-h-screen h-full bg-black p-4 flex flex-grow flex-col md:flex-row">
-    <div className="w-full min-h-screen h-full bg-black flex flex-grow flex-col md:flex-row pt-0 px-4">
+    // <div className="w-full min-h-screen h-full bg-black p-4 flex flex-grow flex-col lg:flex-row">
+    <div className="w-full min-h-screen h-full bg-black flex flex-grow flex-col lg:flex-row pt-0 px-4">
       <Navbar />
       <BoundingBox className="text-white">
-        <div className="w-full max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        <div className="w-full max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
           <div className="nes-container is-rounded is-dark w-full h-[60vh] custom-scroll overflow-y-auto flex flex-col">
             <h1 className="text-sm text-center md:text-left md:text-xl lg:text-2xl">
               Profile Info
