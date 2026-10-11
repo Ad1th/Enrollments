@@ -78,6 +78,11 @@ body {
   text-align: center;
 }
 
+.days li,
+.weekdays li {
+  min-width: 0;
+}
+
 .days li {
   font-size: clamp(0.65rem, 2vw, 0.85rem);
 }
