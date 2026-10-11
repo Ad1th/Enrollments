@@ -306,7 +306,7 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
   }
 
   return (
-    <div className="w-full min-h-screen h-full flex flex-col md:flex-row justify-center items-center pt-0 px-4 overflow-auto">
+    <div className="w-full min-h-screen h-full flex flex-col lg:flex-row justify-center items-center pt-0 px-4 overflow-auto">
       <Navbar />
       <BoundingBox className="relative">
         <div className="w-full h-full text-center relative">
@@ -317,13 +317,13 @@ const handleMeeting = async (e: React.MouseEvent<HTMLButtonElement>) => {
             SCHEDULE A MEETING
           </h1>
           <div className="w-full h-full nes-container justify-center is-rounded is-dark text-2xl md:text-base text-left md:text-center overflow-auto max-h-[70vh] p-10">
-            <div className="flex flex-col md:flex-row w-full gap-6">
-              <div className="w-full md:w-1/3">
+            <div className="flex flex-col lg:flex-row w-full gap-6">
+              <div className="w-full lg:w-1/3">
                 <Calendar selectDate={handleDate} />
               </div>
 
 
-              <div className="flex flex-col gap-4 w-full md:w-2/3">
+              <div className="flex flex-col gap-4 w-full lg:w-2/3">
 
                 {/* Dropdown for time slots */}
                 <div className="relative w-full" ref={dropdownRef}>
