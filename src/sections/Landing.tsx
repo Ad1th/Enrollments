@@ -108,7 +108,7 @@ const Landing = () => {
   };
 
   return (
-    <div className="w-full flex-grow h-[100vh] md:h-full relative flex justify-center items-center text-dark p-4">
+    <div className="w-full flex-grow min-h-[100dvh] lg:h-full relative flex justify-center items-center text-dark p-4">
       {openToast && (
         <CustomToast
           setToast={setOpenToast}
@@ -128,8 +128,8 @@ const Landing = () => {
             ${isPlayButton ? 'text-3xl sm:text-4xl md:text-3xl lg:text-3xl lg:mt-[0.4375rem] ' : 'text-3xl sm:text-3xl md:text-3xl lg:text-[2.6rem] lg:mt-40'}`}>
                 {!isPlayButton ? (
                   <>
-                    <GlitchText className="lg:block mb-8">MOZILLA</GlitchText>
-                    <GlitchText className="lg:block">FIREFOX</GlitchText>
+                    <GlitchText className="!block mb-2 lg:mb-8">MOZILLA</GlitchText>
+                    <GlitchText className="!block">FIREFOX</GlitchText>
                   </>
                 ) : (
                   <GlitchText>MOZILLA FIREFOX</GlitchText>
