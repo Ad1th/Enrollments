@@ -164,7 +164,9 @@ const Meeting = () => {
 
   // Ensure date is properly padded (e.g., "05" instead of "5")
   const formattedDate = date ? String(date).padStart(2, '0') : null;
-  const scheduleTime = formattedDate ? `2025-12-${formattedDate}T${time}:00.000+05:30` : "";
+  const scheduleTime = formattedDate
+  ? `2026-10-${formattedDate}T${time}:00.000+05:30`
+  : "";
 
   useEffect(() => {
     if (gmeet && justBooked) {
