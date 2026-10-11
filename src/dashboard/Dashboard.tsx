@@ -116,7 +116,7 @@ useEffect(() => {
     }
   };
   return (
-    <div className="w-full h-full flex flex-col md:flex-row justify-center items-center sm:flex px-4 ">
+    <div className="w-full h-full flex flex-col lg:flex-row justify-center items-center sm:flex px-4 ">
       <Navbar />
       <BoundingBox>
         <Header tabIndex={tabIndex} setTabIndex={safeSetTabIndex} profileLocked={profileLocked} />

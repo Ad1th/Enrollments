@@ -744,9 +744,12 @@ body {
     padding: 10px !important;
   }
   .nes-input {
-    padding: 5px !important;
-    font-size: 0.8rem !important;
+    padding: 8px 10px !important;
+    font-size: 0.7rem !important;
     min-width: 100% !important;
+  }
+  .has-toggle .nes-input {
+    padding-right: 2.75rem !important;
   }
   .nes-btn {
     padding: 5px !important;
@@ -1021,4 +1024,14 @@ input[type="password"] {
   word-spacing: 5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* OTP boxes shrink to fit narrow screens instead of overflowing */
+.otp.nes-input {
+  flex: 1 1 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 3.5rem;
+  margin: 0 !important;
+  padding: 0 !important;
 }
