@@ -132,7 +132,7 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen h-full flex flex-col md:flex-row justify-center items-center pt-0 px-4 overflow-hidden">
+    <div className="w-full min-h-screen h-full flex flex-col lg:flex-row justify-center items-center pt-0 px-4 overflow-hidden">
       <Navbar />
       <BoundingBox className="relative overflow-hidden">
         <div className="scroll-indicator" aria-hidden>
@@ -395,7 +395,7 @@ const About: React.FC = () => {
                   }}
                 ></div>
                 
-                <div className="flex flex-col md:flex-row gap-6 relative z-10">
+                <div className="flex flex-col lg:flex-row gap-6 relative z-10">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-4">
                       <span 
@@ -740,7 +740,7 @@ const About: React.FC = () => {
                 </h2>
               </div>
 
-              <div className="flex justify-center gap-8 md:gap-12">
+              <div className="flex flex-wrap justify-center gap-6 md:gap-12">
                 {[
                   { href: "https://www.instagram.com/mfc_vit", icon: "instagram", label: "Instagram", color: "#E1306C" },
                   { href: "mailto:mozillafirefox@vit.ac.in", icon: "gmail", label: "Email", color: "#EA4335" },
