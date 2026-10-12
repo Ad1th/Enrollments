@@ -5,20 +5,28 @@ interface CalendarProps {
   selectDate: (date: number) => void;
 }
 
-const ALLOWED_DATES = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+const YEAR = 2026;
+const MONTH = 9; // October (JavaScript months start from 0)
+
+
 
 const Calendar: React.FC<CalendarProps> = ({ selectDate }) => {
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
 
-  const handleSelect = (date: number) => {
-    if (!ALLOWED_DATES.includes(date)) return;
+  // Calculate the weekday on which October begins.
+  // Convert Sunday-first indexing to Monday-first indexing.
+  const firstDay = new Date(YEAR, MONTH, 1).getDay();
+  const startingDay = (firstDay + 6) % 7;
 
+  // Calculate the total number of days in October.
+  const daysInMonth = new Date(YEAR, MONTH + 1, 0).getDate();
+
+  const handleSelect = (date: number) => {
     setSelectedDate(date);
     selectDate(date);
   };
 
   const renderDate = (date: number) => {
-    const isAllowed = ALLOWED_DATES.includes(date);
     const isSelected = selectedDate === date;
 
     return (
@@ -26,7 +34,7 @@ const Calendar: React.FC<CalendarProps> = ({ selectDate }) => {
         <span
           onClick={() => handleSelect(date)}
           className={`date ${
-            isAllowed ? "clickable" : "deactive"
+            "clickable" 
           } ${isSelected ? "selected" : ""}`}
         >
           {date}
@@ -37,10 +45,9 @@ const Calendar: React.FC<CalendarProps> = ({ selectDate }) => {
 
   return (
     <div className="w-full overflow-x-auto">
-
       <div className="month">
         <ul>
-          <li>February</li>
+          <li>October 2026</li>
         </ul>
       </div>
 
@@ -55,18 +62,20 @@ const Calendar: React.FC<CalendarProps> = ({ selectDate }) => {
       </ul>
 
       <ul className="days">
-        <li><span className="deactive">26</span></li>
-        <li><span className="deactive">27</span></li>
-        <li><span className="deactive">28</span></li>
-        <li><span className="deactive">29</span></li>
-        <li><span className="deactive">30</span></li>
-        <li><span className="deactive">31</span></li>
+        {/* Empty cells before October 1 */}
+        {Array.from({ length: startingDay }, (_, i) => (
+          <li key={`empty-${i}`}>
+            <span className="deactive"></span>
+          </li>
+        ))}
 
-        {Array.from({ length: 28 }, (_, i) => i + 1).map(renderDate)}
+        {/* All dates in October */}
+        {Array.from({ length: daysInMonth }, (_, i) => i + 1).map(
+          renderDate
+        )}
       </ul>
     </div>
   );
 };
 
 export default Calendar;
-
