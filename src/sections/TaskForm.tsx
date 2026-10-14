@@ -162,6 +162,11 @@ const TaskForm = ({ domain, setOpenToast, setToastContent }: Props) => {
             {q.prompt}
           </label>
         )}
+        {!big && q.helper && (
+          <p className="whitespace-pre-line text-xs text-gray-300 mb-3 leading-relaxed">
+            {q.helper}
+          </p>
+        )}
         {q.kind === "portfolio" && domain === "tech" && (
           <div className="flex justify-end mb-2">
             <RepoPicker onPick={(repo) => importRepo(q.key, repo)} />
