@@ -17,6 +17,7 @@ interface Question {
   key: string;
   subdomain: string | null;
   kind: "long" | "portfolio";
+  title?: string;
   prompt: string;
   helper?: string;
   maxWords: number;
@@ -159,7 +160,7 @@ const TaskForm = ({ domain, setOpenToast, setToastContent }: Props) => {
       >
         {!big && (
           <label htmlFor={q.key} style={{ color: "#fff" }} className="w-full text-label text-xs mb-2">
-            {q.prompt}
+            {q.title || q.prompt}
           </label>
         )}
         {!big && q.helper && (
